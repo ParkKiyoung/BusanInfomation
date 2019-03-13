@@ -21,7 +21,7 @@ public class TweetTest {
 		TwitterFactory tf = new TwitterFactory(cb.build());
 		Twitter twitter = tf.getInstance();
 		
-		Query query = new Query("남포동");
+		Query query = new Query("부산여행");
 		QueryResult result = null;
 		
 		try {
@@ -30,7 +30,7 @@ public class TweetTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("트윗개수 : "+result.getTweets().size());
+		System.out.println("서면맛집 : "+result.getTweets().size());
 		for(Status status : result.getTweets()) {
 			System.out.println("트위터 내용 : "+status.getText());
 			System.out.println("리트윗 횟수 : "+status.getRetweetCount());

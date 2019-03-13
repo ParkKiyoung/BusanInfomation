@@ -1,10 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML>
 <html>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script>
-	
+function gutour(area,guname){
+	$.ajax({
+		type:"get",
+		url: "gutour",
+		data:{"area":area},
+		success:function(data){
+			data=$.parseJSON(data);
+			var tourSpot=""
+				tourSpot+="<h2>"+guname+"의 여행기</h2>"
+			for(var i = 0 ; i<data.length;i++){
+				tourSpot+="<p>"
+					tourSpot+="<a href="+data[i].link+">"+data[i].title+"</a><br>"
+					tourSpot+=data[i].content+"</p>"
+			}
+			$("#tourInfo").html(tourSpot)
+		},
+		error:function(e){
+			alert("error : "+e)
+		}
+	})
+}
 </script>
 <head>
 <title>부산 정보 포털</title>
@@ -15,79 +36,158 @@
 	href="${pageContext.request.contextPath}/resources/assets/css/main.css">
 </head>
 <body>
-	<div id="page-wrapper">
-		<!-- Header -->
-		<%@include file="./includes/busanHeader.jsp"%>
-			<!-- Main -->
-				<div id="main">
-					<div class="container">
-						<div class="row main-row">
-							<div class="col-4 col-12-medium">
 
-								<section>
-									<h2>Who are you guys?</h2>
-									<ul class="small-image-list">
-										<li>
-											<a href="#"><img src="images/pic2.jpg" alt="" class="left" /></a>
-											<h4>Jane Anderson</h4>
-											<p>Varius nibh. Suspendisse vitae magna eget et amet mollis justo facilisis amet quis.</p>
-										</li>
-										<li>
-											<a href="#"><img src="images/pic1.jpg" alt="" class="left" /></a>
-											<h4>James Doe</h4>
-											<p>Vitae magna eget odio amet mollis justo facilisis amet quis. Sed sagittis consequat.</p>
-										</li>
+	<!-- Header -->
+	<%@include file="./includes/busanHeader.jsp"%>
+	<!-- Main -->
+	<div id="main">
+		<div class="container">
+			<div class="row main-row">
+				<div class="col-4 col-12-medium">
+					<section>
+						<h2>부산 주간 날씨</h2>
+						<table>
+							<tr>
+								<td colspan=4>오늘(${todayDate})</td>
+							</tr>
+							<tr>
+								<td valign="middle"><img src="${todayAMsrc}" width="50"
+									height="40"></td>
+								<td valign="middle">오전<br>${todayAMTemp}</td>
+								<td valign=middle><img src="${todayPMsrc}" width="50"
+									height="40"></td>
+								<td valign="middle">오후<br>${todayPMTemp}</td>
+							</tr>
+							<tr>
+								<td colspan=4>내일(${tmoDate})</td>
+							</tr>
+							<tr>
+								<td valign="middle"><img src="${tmoAMsrc}" width="50"
+									height="40"></td>
+								<td valign="middle">오전<br>${tmoAMTemp}</td>
+								<td valign=middle><img src="${tmoPMsrc}" width="50"
+									height="40"></td>
+								<td valign="middle">오후<br>${tmoPMTemp}</td>
+							</tr>
+							<c:forEach items="${weatherlist }" var="i">
+								<tr>
+								</tr>
+								<td colspan=4>${i.weekday}</td>
+								<tr>
+									<td valign="middle"><img src="${i.imgAMsrc}" width="50"
+										height="40"></td>
+									<td valign="middle">오전<br>${i.weekAMTemp }</td>
+									<td valign="middle"><img src="${i.imgPMsrc}" width="50"
+										height="40"></td>
+									<td valign="middle">오후<br>${i.weekPMTemp }</td>
+								</tr>
+							</c:forEach>
+						</table>
+					</section>
+					<section>
+						<h2>지역별 여행지</h2>
+						<div>
+							<div class="row">
+								<div class="col-6 col-12-small">
+									<ul class="link-list">
+										<li><a href="javascript:gutour('joong','중구')">중구</a></li>
+										<li><a href="javascript:gutour('seo','서구')">서구</a></li>
+										<li><a href="javascript:gutour('dong','동구')">동구</a></li>
+										<li><a href="javascript:gutour('youngdo','영도구')">영도구</a></li>
+										<li><a href="javascript:gutour('busanjin','부산진구')">부산진구</a></li>
+										<li><a href="javascript:gutour('geumjeong','금정구')">금정구</a></li>
+										<li><a href="javascript:gutour('gangseo','강서구')">강서구</a></li>
+										<li><a href="javascript:gutour('sasang','사상구')">사상구</a></li>
 									</ul>
-								</section>
-
-								<section>
-									<h2>How about some links?</h2>
-									<div>
-										<div class="row">
-											<div class="col-6 col-12-small">
-												<ul class="link-list">
-													<li><a href="#">Sed neque nisi consequat</a></li>
-													<li><a href="#">Dapibus sed mattis blandit</a></li>
-													<li><a href="#">Quis accumsan lorem</a></li>
-													<li><a href="#">Suspendisse varius ipsum</a></li>
-													<li><a href="#">Eget et amet consequat</a></li>
-												</ul>
-											</div>
-											<div class="col-6 col-12-small">
-												<ul class="link-list">
-													<li><a href="#">Quis accumsan lorem</a></li>
-													<li><a href="#">Sed neque nisi consequat</a></li>
-													<li><a href="#">Eget et amet consequat</a></li>
-													<li><a href="#">Dapibus sed mattis blandit</a></li>
-													<li><a href="#">Vitae magna sed dolore</a></li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</section>
-
-							</div>
-							<div class="col-8 col-12-medium imp-medium">
-
-								<section>
-									<h2>Two Column #2 (left-hand sidebar)</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ante ante, viverra a ornare sed, convallis sed est. Proin felis sapien, adipiscing quis eleifend vel, sodales vitae sapien. Donec vel lacus leo, eu convallis metus. Cras egestas feugiat tortor, vitae interdum augue aliquam a. Sed nec augue id orci egestas commodo in eget magna. Nunc eleifend diam non odio laoreet placerat gravida nulla bibendum. Phasellus tempus imperdiet suscipit.</p>
-									<p>Mauris risus nulla, pulvinar vitae sagittis a, pharetra nec tellus. Suspendisse varius enim ac felis mattis aliquam. Aenean et justo quis ipsum gravida lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lacinia bibendum cursus. Nullam nec pellentesque lacus. In porta erat in tortor rhoncus quis accumsan magna pretium. Nulla posuere magna eget mauris lacinia in mollis sem fermentum. Donec mollis adipiscing mauris, ut posuere enim rhoncus ut. Nunc commodo vestibulum orci vel placerat. Cras sed risus libero. Donec ac lacus vitae lectus mattis commodo id vitae libero. Etiam lorem odio, volutpat nec pulvinar sit amet, tincidunt ut lacus. Pellentesque consequat arcu vel nisi lobortis in pellentesque orci sollicitudin. Cras gravida lacus turpis, consectetur porttitor lectus. Cras malesuada tortor id neque porta ut semper quam iaculis.</p>
-									<p>Nulla ut tortor quam, a luctus nunc. Nulla condimentum diam porttitor arcu placerat tincidunt. Nunc non augue ipsum. Nulla facilisi. Phasellus feugiat augue in ipsum egestas semper. Suspendisse blandit, nisl ullamcorper blandit sollicitudin, sem leo auctor lectus, et volutpat mauris elit et odio. Ut elementum risus in metus mollis tristique vulputate nulla interdum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vitae orci dui, ut facilisis dui.</p>
-								</section>
-
+								</div>
+								<div class="col-6 col-12-small">
+									<ul class="link-list">
+										<li><a href="javascript:gutour('dongnea','동래구')">동래구</a></li>
+										<li><a href="javascript:gutour('nam','남구')">남구</a></li>
+										<li><a href="javascript:gutour('book','북구')">북구</a></li>
+										<li><a href="javascript:gutour('haeundae','해운대구')">해운대구</a></li>
+										<li><a href="javascript:gutour('saha','사하구')">사하구</a></li>
+										<li><a href="javascript:gutour('yeonje','연제구')">연제구</a></li>
+										<li><a href="javascript:gutour('suyoung','수영구')">수영구</a></li>
+										<li><a href="javascript:gutour('gijang','기장군')">기장군</a></li>
+									</ul>
+								</div>
 							</div>
 						</div>
-					</div>
-				</div>
+					</section>
 
-				<!-- Footer -->
-		<%@include file="./includes/busanFooter.jsp"%>
-		<!-- Scripts -->
-		<script src="/resoureces/assets/js/jquery.min.js"></script>
-		<script src="/resoureces/assets/js/browser.min.js"></script>
-		<script src="/resoureces/assets/js/breakpoints.min.js"></script>
-		<script src="/resoureces/assets/js/util.js"></script>
-		<script src="/resoureces/assets/js/main.js"></script>
+				</div>
+				<div class="col-8 col-12-medium imp-medium">
+
+					<section>
+						<span id=tourInfo>
+							<h2>부산을 대표하는 관광지</h2>
+							<p>
+								해운대 해수욕장 및 <a href="https://www.busanaquarium.com/">아쿠아리움</a>
+							</p>
+							<table>
+								<tr>
+									<td><img
+										src="/resources/img/tourinfomainimg/haeundae1.jpg" width=300
+										height=200></td>
+									<td><img
+										src="/resources/img/tourinfomainimg/aquarium.jpg" width=400
+										height=200></td>
+								</tr>
+							</table>
+							<p>달맞이 공원</p>
+							<table>
+								<tr>
+									<td><img
+										src="/resources/img/tourinfomainimg/dalmaji1.jpg" width=300
+										height=200></td>
+									<td><img
+										src="/resources/img/tourinfomainimg/dalmaji2.jpg" width=200
+										height=200></td>
+								</tr>
+							</table>
+							<p>용두산 공원 및 태종대</p>
+							<table>
+								<tr>
+									<td><img
+										src="/resources/img/tourinfomainimg/yongdusan1.jpg" width=300
+										height=200></td>
+									<td><img
+										src="/resources/img/tourinfomainimg/taejongdae1.jpg" width=300
+										height=200></td>
+								</tr>
+							</table>
+							<p>
+								<a href="https://www.knmm.or.kr/Main/Main.aspx">국립해양 박물관</a>
+							</p>
+							<table>
+								<tr>
+									<td><img
+										src="/resources/img/tourinfomainimg/haeyangpark1.jpg"
+										width=300 height=200></td>
+									<td><img
+										src="/resources/img/tourinfomainimg/haeyangpark2.JPG"
+										width=250 height=200></td>
+									<td><img
+										src="/resources/img/tourinfomainimg/haeyangpark3.jpg"
+										width=300 height=200></td>
+								</tr>
+							</table>
+						</span>
+					</section>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+	<%@include file="./includes/busanFooter.jsp"%>
+	<!-- Scripts -->
+	<script src="/resources/assets/js/jquery.min.js"></script>
+	<script src="/resources/assets/js/browser.min.js"></script>
+	<script src="/resources/assets/js/breakpoints.min.js"></script>
+	<script src="/resources/assets/js/util.js"></script>
+	<script src="/resources/assets/js/main.js"></script>
 </body>
 </html>

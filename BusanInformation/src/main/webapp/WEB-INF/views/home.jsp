@@ -176,11 +176,11 @@ $(document).ready(function(){//뉴스 검색 결과 가져옴(구글)
 			<!-- Footer -->
 				<%@include file="./includes/busanFooter.jsp"%>
 		<!-- Scripts -->
-			<script src="/resoureces/assets/js/jquery.min.js"></script>
-			<script src="/resoureces/assets/js/browser.min.js"></script>
-			<script src="/resoureces/assets/js/breakpoints.min.js"></script>
-			<script src="/resoureces/assets/js/util.js"></script>
-			<script src="/resoureces/assets/js/main.js"></script>
+	<script src="/resources/assets/js/jquery.min.js"></script>
+	<script src="/resources/assets/js/browser.min.js"></script>
+	<script src="/resources/assets/js/breakpoints.min.js"></script>
+	<script src="/resources/assets/js/util.js"></script>
+	<script src="/resources/assets/js/main.js"></script>
 
 	</body>
 </html>
