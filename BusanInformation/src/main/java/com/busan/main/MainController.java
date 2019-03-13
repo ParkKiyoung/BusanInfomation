@@ -26,16 +26,6 @@ public class MainController {
 	public String home() {	
 		return "home";
 	}
-	
-
-	@GetMapping("/Transportation")
-	public String Transportation() {	
-		return "Transportation";
-	}
-	@GetMapping("/Hospitality")
-	public String Hospitality() {	
-		return "Hospitality";
-	}
 	@GetMapping("/Board")
 	public String Board() {	
 		return "Board";

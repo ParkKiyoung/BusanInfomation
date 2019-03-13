@@ -85,7 +85,7 @@ function gutour(area,guname){
 						</table>
 					</section>
 					<section>
-						<h2>지역별 여행지</h2>
+						<h2>지역별 여행기</h2>
 						<div>
 							<div class="row">
 								<div class="col-6 col-12-small">

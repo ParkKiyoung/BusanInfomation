@@ -11,7 +11,7 @@
 										<a href="AboutBusan">About Busan</a>
 										<a href="TourInformation">TOUR INFORMATION</a>
 										<a href="Transportation">Transportation</a>
-										<a href="Hospitality" >Hotel/Inn</a>
+										<a href="accommodation" >Accommodations</a>
 										<a href="Board">BOARD</a>
 										<a href="Statistics">Statistics</a>
 									</nav>
