@@ -50,7 +50,7 @@
 				hotelcontent+=" <img src="+data.imgSrc+"></p>"
 				hotelcontent+="<p>호텔 명 : "+data.addr+"</p>"
 				hotelcontent+="<p>전화번호 : "+data.tel+"</p>"
-				hotelcontent+="<p>홈페이지 : <a href="+data.userHomepage+">"+data.userHomepage+"</a></p>"
+				hotelcontent+="<p>홈페이지 : <a href='"+data.userHomepage+"'>"+data.userHomepage+"</a></p>"
 				hotelcontent+="<p>주 소 : "+data.addr+"</p>"
 				hotelcontent+="<p>상세정보 : "+data.content+"</p>"
 				hotelcontent+="<p>가 격 : "+data.price+"</p>"
@@ -80,13 +80,11 @@
 						<section>
 							<h2>호텔 추천</h2>
 							<ul class="small-image-list">
-								<li><a href="#"><img src="images/pic2.jpg" alt=""
-										class="left" /></a>
+								<li>
 									<h4>Jane Anderson</h4>
 									<p>Varius nibh. Suspendisse vitae magna eget et amet mollis
 										justo facilisis amet quis.</p></li>
-								<li><a href="#"><img src="images/pic1.jpg" alt=""
-										class="left" /></a>
+								<li>
 									<h4>James Doe</h4>
 									<p>Vitae magna eget odio amet mollis justo facilisis amet
 										quis. Sed sagittis consequat.</p></li>
@@ -94,7 +92,7 @@
 						</section>
 
 						<section>
-							<h2>How about some links?</h2>
+							<h2>호텔 예매 사이트</h2>
 							<div>
 								<div class="row">
 									<div class="col-6 col-12-small">

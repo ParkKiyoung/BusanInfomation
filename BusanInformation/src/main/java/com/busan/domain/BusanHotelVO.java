@@ -9,13 +9,8 @@ public class BusanHotelVO {
 	private String tel;
 	private String trafficin;
 	
-	public String getTrafficin() {
-		return trafficin;
-	}
-	public void setTrafficin(String trafficin) {
-		this.trafficin = trafficin;
-	}
-	private String userHompage;
+
+	private String userHomepage;
 	private String wgsx;
 	private String wgsy;
 	public String getTitle() {
@@ -54,12 +49,7 @@ public class BusanHotelVO {
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
-	public String getUserHompage() {
-		return userHompage;
-	}
-	public void setUserHompage(String userHompage) {
-		this.userHompage = userHompage;
-	}
+
 	public String getWgsx() {
 		return wgsx;
 	}
@@ -73,7 +63,18 @@ public class BusanHotelVO {
 		this.wgsy = wgsy;
 	}
 	
-	
+	public String getTrafficin() {
+		return trafficin;
+	}
+	public void setTrafficin(String trafficin) {
+		this.trafficin = trafficin;
+	}
+	public String getUserHomepage() {
+		return userHomepage;
+	}
+	public void setUserHomepage(String userHomepage) {
+		this.userHomepage = userHomepage;
+	}
 	
 	
 	

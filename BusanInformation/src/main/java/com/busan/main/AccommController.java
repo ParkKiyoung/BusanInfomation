@@ -67,7 +67,7 @@ public class AccommController {
 	}
 	@GetMapping(value="/hotelView")
 	public @ResponseBody BusanHotelVO hotelView(String datasid) {
-		System.out.println(datasid);
+		
 		String myapi = "Tj5d8mH5St9DksiKMJBTbgUXRiqOcjGCPvPq%2BUdNk8zE209w%2FV8WUCdj%2BXDuvNXYu3EgTzdZpJ5vt6%2FlnLcXfA%3D%3D";
 		String endpoint = "http://apis.data.go.kr/6260000/BusanTourInfoService";
 		String url= endpoint+"/getStayDetail?serviceKey="+myapi+"&data_sid="+datasid;
@@ -77,21 +77,18 @@ public class AccommController {
 			Document doc = Jsoup.connect(url).get();
 			vo.setTitle(doc.select("dataTitle").text());
 			vo.setAddr(doc.select("addr").text()+doc.select("detail").text());
-			vo.setContent(doc.select("dataContent").text());
+			vo.setContent(doc.select("dataContent").text().replaceAll("&ltbr&gt", "\n"));
 			vo.setImgSrc(doc.select("mainimgthumb").text());
 			vo.setPrice(doc.select("price").text());
 			vo.setTel(doc.select("tel").text());
-			vo.setTrafficin(doc.select("trafin").text());
-			vo.setUserHompage(doc.select("userHomepage").text());
+			vo.setTrafficin(doc.select("trafin").text().replaceAll("&ltbr&gt", "\n")+" "+doc.select("trafout").text().replaceAll("&ltbr&gt", "\n"));
+			vo.setUserHomepage(doc.select("userHomepage").text());
 			vo.setWgsx(doc.select("wgsx").text());
 			vo.setWgsy(doc.select("wgsy").text());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		return vo;
 	}
-	
-
 }
