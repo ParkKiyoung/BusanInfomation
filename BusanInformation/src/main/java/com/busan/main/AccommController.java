@@ -22,6 +22,8 @@ import com.busan.domain.BusanHotelVO;
 @RequestMapping("/*")
 public class AccommController {
 	
+	String myapi = "F3RKR%2FvO05WMjgbXcNLYkUXIvJfX9WlREEmv1M6GhxceQUnsJBYynbCMu9NVA2rFzp1zGxOiG9V1QLjCSWTqlg%3D%3D";
+	
 	@Resource(name="page")
 	private PagingAction page;
 	@GetMapping("/accommodation")
@@ -32,7 +34,7 @@ public class AccommController {
 	
 	@GetMapping(value="/hotellist", produces="text/plain;charset=UTF-8")
 	public @ResponseBody String hotelList(String pageNo) {
-		String myapi = "Tj5d8mH5St9DksiKMJBTbgUXRiqOcjGCPvPq%2BUdNk8zE209w%2FV8WUCdj%2BXDuvNXYu3EgTzdZpJ5vt6%2FlnLcXfA%3D%3D";
+		
 		String endpoint = "http://apis.data.go.kr/6260000/BusanTourInfoService";
 		String getStayList="getStayList";
 		int numOfRows=5;//페이지당 갯수
@@ -68,7 +70,7 @@ public class AccommController {
 	@GetMapping(value="/hotelView")
 	public @ResponseBody BusanHotelVO hotelView(String datasid) {
 		
-		String myapi = "Tj5d8mH5St9DksiKMJBTbgUXRiqOcjGCPvPq%2BUdNk8zE209w%2FV8WUCdj%2BXDuvNXYu3EgTzdZpJ5vt6%2FlnLcXfA%3D%3D";
+		
 		String endpoint = "http://apis.data.go.kr/6260000/BusanTourInfoService";
 		String url= endpoint+"/getStayDetail?serviceKey="+myapi+"&data_sid="+datasid;
 		

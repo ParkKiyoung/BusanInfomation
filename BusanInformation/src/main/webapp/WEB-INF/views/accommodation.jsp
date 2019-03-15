@@ -76,41 +76,26 @@
 			<div class="container">
 				<div class="row main-row">
 					<div class="col-4 col-12-medium">
-
-						<section>
-							<h2>호텔 추천</h2>
-							<ul class="small-image-list">
-								<li>
-									<h4>Jane Anderson</h4>
-									<p>Varius nibh. Suspendisse vitae magna eget et amet mollis
-										justo facilisis amet quis.</p></li>
-								<li>
-									<h4>James Doe</h4>
-									<p>Vitae magna eget odio amet mollis justo facilisis amet
-										quis. Sed sagittis consequat.</p></li>
-							</ul>
-						</section>
-
 						<section>
 							<h2>호텔 예매 사이트</h2>
 							<div>
 								<div class="row">
 									<div class="col-6 col-12-small">
 										<ul class="link-list">
-											<li><a href="#">Sed neque nisi consequat</a></li>
-											<li><a href="#">Dapibus sed mattis blandit</a></li>
-											<li><a href="#">Quis accumsan lorem</a></li>
-											<li><a href="#">Suspendisse varius ipsum</a></li>
-											<li><a href="#">Eget et amet consequat</a></li>
+											<li><a href="#">익스피디아</a></li>
+											<li><a href="#">호텔스 컴바인</a></li>
+											<li><a href="#">부킹닷컴</a></li>
+											<li><a href="#">트리바고</a></li>
+											<li><a href="#">호텔스닷컴</a></li>
 										</ul>
 									</div>
 									<div class="col-6 col-12-small">
 										<ul class="link-list">
-											<li><a href="#">Quis accumsan lorem</a></li>
-											<li><a href="#">Sed neque nisi consequat</a></li>
-											<li><a href="#">Eget et amet consequat</a></li>
-											<li><a href="#">Dapibus sed mattis blandit</a></li>
-											<li><a href="#">Vitae magna sed dolore</a></li>
+											<li><a href="#">여기 어떄</a></li>
+											<li><a href="#">야놀자</a></li>
+											<li><a href="#">에어비앤비</a></li>
+											<li><a href="#">인터파크</a></li>
+											<li><a href="#">하나Free</a></li>
 										</ul>
 									</div>
 								</div>

@@ -5,27 +5,54 @@
 <html>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script>
-function gutour(area,guname){
+$(document).ready(function(){
 	$.ajax({
-		type:"get",
-		url: "gutour",
-		data:{"area":area},
-		success:function(data){
-			data=$.parseJSON(data);
-			var tourSpot=""
-				tourSpot+="<h2>"+guname+"의 여행기</h2>"
-			for(var i = 0 ; i<data.length;i++){
-				tourSpot+="<p>"
-					tourSpot+="<a href="+data[i].link+">"+data[i].title+"</a><br>"
-					tourSpot+=data[i].content+"</p>"
+		type : "get",
+		url : "gutour",
+		data : {
+			"area" : "haeundae"
+		},
+		success : function(data) {
+			data = $.parseJSON(data);
+			var tourSpot = ""
+			tourSpot += "<h2>해운대구의 여행기</h2>"
+			for (var i = 0; i < data.length; i++) {
+				tourSpot += "<p>"
+				tourSpot += "<a href="+data[i].link+">" + data[i].title
+						+ "</a><br>"
+				tourSpot += data[i].content + "</p>"
 			}
 			$("#tourInfo").html(tourSpot)
 		},
-		error:function(e){
-			alert("error : "+e)
+		error : function(e) {
+			alert("error : " + e)
 		}
 	})
-}
+})
+	function gutour(area, guname) {
+		$.ajax({
+			type : "get",
+			url : "gutour",
+			data : {
+				"area" : area
+			},
+			success : function(data) {
+				data = $.parseJSON(data);
+				var tourSpot = ""
+				tourSpot += "<h2>" + guname + "의 여행기</h2>"
+				for (var i = 0; i < data.length; i++) {
+					tourSpot += "<p>"
+					tourSpot += "<a href="+data[i].link+">" + data[i].title
+							+ "</a><br>"
+					tourSpot += data[i].content + "</p>"
+				}
+				$("#tourInfo").html(tourSpot)
+			},
+			error : function(e) {
+				alert("error : " + e)
+			}
+		})
+	}
 </script>
 <head>
 <title>부산 정보 포털</title>
@@ -44,11 +71,6 @@ function gutour(area,guname){
 		<div class="container">
 			<div class="row main-row">
 				<div class="col-4 col-12-medium">
-					<section>
-						<h2>부산 주간 날씨</h2>
-
-						
-					</section>
 					<section>
 						<h2>지역별 가볼만한 곳 추천</h2>
 						<div>
@@ -80,7 +102,6 @@ function gutour(area,guname){
 							</div>
 						</div>
 					</section>
-
 				</div>
 				<div class="col-8 col-12-medium imp-medium">
 

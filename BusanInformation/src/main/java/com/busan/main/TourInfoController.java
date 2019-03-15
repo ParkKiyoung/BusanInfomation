@@ -23,6 +23,8 @@ import com.busan.domain.BusanWeatherVO;
 @RequestMapping("/*")
 public class TourInfoController {
 	
+	String myapi = "F3RKR%2FvO05WMjgbXcNLYkUXIvJfX9WlREEmv1M6GhxceQUnsJBYynbCMu9NVA2rFzp1zGxOiG9V1QLjCSWTqlg%3D%3D";
+	
 	@Autowired
 	private PagingAction page;
 	
@@ -83,7 +85,6 @@ public class TourInfoController {
 
 	@GetMapping(value="/exptour", produces="text/plain;charset=UTF-8")
 	public @ResponseBody String emptourmenu(String course,String pageNo,String place,String fx,String theme) {
-		String myapi = "Tj5d8mH5St9DksiKMJBTbgUXRiqOcjGCPvPq%2BUdNk8zE209w%2FV8WUCdj%2BXDuvNXYu3EgTzdZpJ5vt6%2FlnLcXfA%3D%3D";
 		String endpoint = "http://apis.data.go.kr/6260000/BusanTourInfoService";
 		int numOfRows=5;//페이지당 갯수
 		int pageNO;
@@ -117,8 +118,7 @@ public class TourInfoController {
 	}
 	@GetMapping(value="/empView")
 	public @ResponseBody BusanTourInfo empView(String datasid) {
-		
-		String myapi = "Tj5d8mH5St9DksiKMJBTbgUXRiqOcjGCPvPq%2BUdNk8zE209w%2FV8WUCdj%2BXDuvNXYu3EgTzdZpJ5vt6%2FlnLcXfA%3D%3D";
+	
 		String endpoint = "http://apis.data.go.kr/6260000/BusanTourInfoService";
 		String url= endpoint+"/getExperienceTourDetail?serviceKey="+myapi+"&data_sid="+datasid;
 		

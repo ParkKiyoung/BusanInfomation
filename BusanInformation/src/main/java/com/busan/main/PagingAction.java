@@ -74,4 +74,37 @@ public class PagingAction {
 		}
 		return sb.toString();
 	}
+	public String transpaging(int count, int PageSize, int currentPage, String linename, String code,String fx) {
+		
+		int totPage = count / PageSize + (count % PageSize == 0 ? 0 : 1);
+		int blockPage = 4;
+		int startPage = ((currentPage - 1) / blockPage) * blockPage + 1;
+		int endPage = startPage + blockPage - 1;
+		if (endPage > totPage)
+			endPage = totPage;
+		
+		StringBuffer sb = new StringBuffer();
+		if(count>0) {
+			if(startPage>blockPage) {
+				sb.append("<a href=javascript:"+fx+"('");
+				sb.append(code+"','"+linename+"',"+(startPage-blockPage));
+				sb.append(")>[이전]</a>");
+			}
+			for(int i = startPage ; i<=endPage ; i++) {
+				if(i==currentPage) {
+					sb.append("["+i+"]");
+				}else {
+					sb.append("<a href=javascript:"+fx+"('");
+					sb.append(code+"','"+linename+"',"+i);
+					sb.append(")>["+i+"]</a>");
+				}
+			}
+			if(endPage<totPage) {
+				sb.append("<a href=javascript:"+fx+"('");
+				sb.append(code+"','"+linename+"',"+(startPage+blockPage));
+				sb.append(")>[다음]</a>");
+			}
+		}
+		return sb.toString();
+	}
 }
