@@ -115,9 +115,8 @@
 					frameborder="0"
 					allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 					allowfullscreen></iframe>
-					<h2 align = center>
-						Most ImportantThings..When you tour BUSAN
-					</h2>
+				<span align=center> Most ImportantThings..When you tour BUSAN
+				</span>
 			</div>
 		</div>
 
