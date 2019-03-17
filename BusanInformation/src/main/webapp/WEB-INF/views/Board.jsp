@@ -5,30 +5,6 @@
 <html>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script>
-/* $(document).ready(function(){
-	$.ajax({
-		type : "get",
-		url : "gutour",
-		data : {
-			"area" : "haeundae"
-		},
-		success : function(data) {
-			data = $.parseJSON(data);
-			var tourSpot = ""
-			tourSpot += "<h2>해운대구의 여행기</h2>"
-			for (var i = 0; i < data.length; i++) {
-				tourSpot += "<p>"
-				tourSpot += "<a href="+data[i].link+">" + data[i].title
-						+ "</a><br>"
-				tourSpot += data[i].content + "</p>"
-			}
-			$("#tourInfo").html(tourSpot)
-		},
-		error : function(e) {
-			alert("error : " + e)
-		}
-	})
-}) */
 	function gutour(area, guname) {
 		$.ajax({
 			type : "get",
@@ -52,6 +28,9 @@
 				alert("error : " + e)
 			}
 		})
+	}
+	function Boardwrite(){
+		location.href="/BoardWrite"
 	}
 </script>
 <head>
@@ -108,8 +87,20 @@
 					<section>
 						<div id=tourInfo>
 							<h2>게시판</h2>
-							<div id=div.board>
-							<%@include file="./BoardList.jsp"%>
+							<div id=div.board align = center>
+								<h3>부산여행의 후기를 마음 껏 작성해주세요</h3>
+								<table>
+									<tr>
+										<td colspan=4 align=right><input type=button value="글 작성"
+											onclick="Boardwrite()"></td>
+									</tr>
+									<tr>
+										<td width=70px height=100px>글번호</td>
+										<td width=200px>제목</td>
+										<td width=90px>작성자</td>
+										<td width=70px>작성일</td>
+									</tr>
+								</table>
 							</div>
 						</div>
 					</section>

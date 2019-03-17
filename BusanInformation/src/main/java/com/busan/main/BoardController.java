@@ -20,6 +20,10 @@ public class BoardController {
 	public String Board() {	
 		return "Board";
 	}
+	@GetMapping("/BoardWrite")
+	public String BoardWrite() {	
+		return "BoardWrite";
+	}
 	@GetMapping(value="/gutour", produces="text/plain;charset=UTF-8")
 	public @ResponseBody String MainNews(String area) {
 			String url = null;
