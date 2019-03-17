@@ -5,7 +5,7 @@
 <html>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script>
-$(document).ready(function(){
+/* $(document).ready(function(){
 	$.ajax({
 		type : "get",
 		url : "gutour",
@@ -28,7 +28,7 @@ $(document).ready(function(){
 			alert("error : " + e)
 		}
 	})
-})
+}) */
 	function gutour(area, guname) {
 		$.ajax({
 			type : "get",
@@ -72,7 +72,7 @@ $(document).ready(function(){
 			<div class="row main-row">
 				<div class="col-4 col-12-medium">
 					<section>
-						<h2>지역별 가볼만한 곳 추천</h2>
+						<h2>가볼만한 곳 추천/후기</h2>
 						<div>
 							<div class="row">
 								<div class="col-6 col-12-small">
@@ -106,10 +106,12 @@ $(document).ready(function(){
 				<div class="col-8 col-12-medium imp-medium">
 
 					<section>
-						<span id=tourInfo>
+						<div id=tourInfo>
 							<h2>게시판</h2>
-
-						</span>
+							<div id=div.board>
+							<%@include file="./BoardList.jsp"%>
+							</div>
+						</div>
 					</section>
 
 				</div>

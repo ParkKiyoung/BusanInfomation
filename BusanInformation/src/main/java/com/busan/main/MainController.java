@@ -26,13 +26,6 @@ public class MainController {
 	public String home() {	
 		return "home";
 	}
-
-	@GetMapping("/Statistics")
-	public String Statistics() {	
-		return "Statistics";
-	}
-	
-	
 	@GetMapping(value="/GetMainNews", produces="text/plain;charset=UTF-8")
 	public @ResponseBody String MainNews() {
 		JSONArray jarr = new JSONArray();
