@@ -28,7 +28,7 @@ public class AccommController {
 	private PagingAction page;
 	@GetMapping("/accommodation")
 	public String accommodations() {
-		return "accommodation";
+		return "/accommodation/accommodation";
 	}
 	
 	
@@ -68,9 +68,7 @@ public class AccommController {
 		return jarr.toString();
 	}
 	@GetMapping(value="/hotelView")
-	public @ResponseBody BusanHotelVO hotelView(String datasid) {
-		
-		
+	public String hotelView(Model model, String datasid) {
 		String endpoint = "http://apis.data.go.kr/6260000/BusanTourInfoService";
 		String url= endpoint+"/getStayDetail?serviceKey="+myapi+"&data_sid="+datasid;
 		
@@ -87,10 +85,11 @@ public class AccommController {
 			vo.setUserHomepage(doc.select("userHomepage").text());
 			vo.setWgsx(doc.select("wgsx").text());
 			vo.setWgsy(doc.select("wgsy").text());
+			model.addAttribute("vo",vo);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return vo;
+		return "/accommodation/accommodationView";
 	}
 }

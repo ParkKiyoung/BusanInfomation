@@ -21,7 +21,7 @@ public class TweetTest {
 		TwitterFactory tf = new TwitterFactory(cb.build());
 		Twitter twitter = tf.getInstance();
 		
-		Query query = new Query("부산여행");
+		Query query = new Query("해운대여행");
 		QueryResult result = null;
 		
 		try {
