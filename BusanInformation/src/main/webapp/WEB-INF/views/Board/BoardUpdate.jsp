@@ -29,25 +29,6 @@
 			}
 		})
 	}
-	function confirmWrite(){
-		if($("#title").val()==""){
-			alert("제목을 입력해주세요");
-			return false;
-		}
-		if($("#writer").val()==""){
-			alert("이름을 입력해주세요");
-			return false;
-		}
-		if($("#content").val()==""){
-			alert("sodyd을 입력해주세요");
-			return false;
-		}
-		if($("#password").val()==""){
-			alert("비밀번호를 입력해주세요");
-			return false;
-		}
-		$("#BoardFrm").submit();
-	}
 </script>
 <head>
 <title>부산 정보 포털</title>
@@ -60,7 +41,7 @@
 <body>
 
 	<!-- Header -->
-	<%@include file="./includes/busanHeader.jsp"%>
+	<%@include file="../includes/busanHeader.jsp"%>
 	<!-- Main -->
 	<div id="main">
 		<div class="container">
@@ -102,46 +83,58 @@
 
 					<section>
 						<div id=tourInfo>
-							<h3>후기 글 작성</h3>
-							<form action="BoardWrite" method="post" id="BoardFrm">
-								<table>
-									<tr>
-										<td>글 제목</td>
-										<td><input type="text" id="title"></td>
-									</tr>
-									<tr>
-										<td>작성자</td>
-										<td><input type="text" id="writer"></td>
-									</tr>
-									<tr>
-										<th colspan=2 align=center>내용</th>
-									</tr>
-									<tr>
-										<td colspan=2><textarea id=content rows=20 cols=80></textarea></td>
-									</tr>
-									<tr>
-										<td>비밀번호</td>
-										<td><input type=password id=password></td>
-									</tr>
-									<tr>
-										<td colspan=2 align=center><input type=button
-											value="작성완료" onclick="confirmWrite()"> <input
-											type=reset value="취소"></td>
-									</tr>
-								</table>
-							</form>
+							<h2>게시판</h2>
+							<hr>
+							<div id=div.board align=center>
+								<h3>글 수정/삭제</h3>
+								<hr>
+								<br>
+								<br>
+								<form action="BoardUpdate" method="post" id="BoardFrm">
+									<input type=hidden id=num name=num value=${vo.num }>
+									<table>
+										<tr>
+											<td>글 제목</td>
+											<td><input type="text" id="title" name="title"
+												value=${vo.title }></td>
+										</tr>
+										<tr>
+											<td>작성자</td>
+											<td><input type="text" id="writer" name="writer"
+												value=${vo.writer }></td>
+										</tr>
+										<tr>
+											<th colspan=2 align=center>내용</th>
+										</tr>
+										<tr>
+											<td colspan=2><textarea id=content name="content"
+													rows=20 cols=80>${vo.content }</textarea></td>
+										</tr>
+										<tr>
+											<td>비밀번호</td>
+											<td><input type=password id=password name="password"></td>
+										</tr>
+										<tr>
+											<td colspan=2 align=center><input type=button
+												value="작성완료" onclick="confirmWrite()"> <input
+												type=reset value="취소"><input type=button
+												value="삭제" onclick="BoardDelete(${vo.num})"></td>
+										</tr>
+									</table>
+								</form>
+							</div>
 						</div>
-				</div>
-				</section>
+					</section>
 
+				</div>
 			</div>
 		</div>
 	</div>
-	</div>
 
 	<!-- Footer -->
-	<%@include file="./includes/busanFooter.jsp"%>
+	<%@include file="../includes/busanFooter.jsp"%>
 	<!-- Scripts -->
+	<script src="/resources/assets/js/Board.js"></script>
 	<script src="/resources/assets/js/jquery.min.js"></script>
 	<script src="/resources/assets/js/browser.min.js"></script>
 	<script src="/resources/assets/js/breakpoints.min.js"></script>

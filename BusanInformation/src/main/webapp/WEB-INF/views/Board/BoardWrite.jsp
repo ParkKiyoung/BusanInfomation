@@ -29,9 +29,6 @@
 			}
 		})
 	}
-	function Boardwrite(){
-		location.href="/BoardWrite"
-	}
 </script>
 <head>
 <title>부산 정보 포털</title>
@@ -44,7 +41,7 @@
 <body>
 
 	<!-- Header -->
-	<%@include file="./includes/busanHeader.jsp"%>
+	<%@include file="../includes/busanHeader.jsp"%>
 	<!-- Main -->
 	<div id="main">
 		<div class="container">
@@ -87,32 +84,51 @@
 					<section>
 						<div id=tourInfo>
 							<h2>게시판</h2>
+							<hr>
 							<div id=div.board align = center>
-								<h3>부산여행의 후기를 마음 껏 작성해주세요</h3>
+								<h3> 부산 여행 후기를 작성해주세요 </h3>
+								<hr>
+								<br><br>
+							<form action="BoardWrite" method="post" id="BoardFrm">
 								<table>
 									<tr>
-										<td colspan=4 align=right><input type=button value="글 작성"
-											onclick="Boardwrite()"></td>
+										<td>글 제목</td>
+										<td><input type="text" id="title" name="title"></td>
 									</tr>
 									<tr>
-										<td width=70px height=100px>글번호</td>
-										<td width=200px>제목</td>
-										<td width=90px>작성자</td>
-										<td width=70px>작성일</td>
+										<td>작성자</td>
+										<td><input type="text" id="writer" name = "writer"></td>
+									</tr>
+									<tr>
+										<th colspan=2 align=center>내용</th>
+									</tr>
+									<tr>
+										<td colspan=2><textarea id=content name = "content" rows=20 cols=80></textarea></td>
+									</tr>
+									<tr>
+										<td>비밀번호</td>
+										<td><input type=password id=password name="password"></td>
+									</tr>
+									<tr>
+										<td colspan=2 align=center><input type=button
+											value="작성완료" onclick="confirmWrite()"> <input
+											type=reset value="취소"></td>
 									</tr>
 								</table>
-							</div>
+							</form>
 						</div>
-					</section>
-
 				</div>
+				</section>
+
 			</div>
 		</div>
 	</div>
+	</div>
 
 	<!-- Footer -->
-	<%@include file="./includes/busanFooter.jsp"%>
+	<%@include file="../includes/busanFooter.jsp"%>
 	<!-- Scripts -->
+	<script src="/resources/assets/js/Board.js"></script>
 	<script src="/resources/assets/js/jquery.min.js"></script>
 	<script src="/resources/assets/js/browser.min.js"></script>
 	<script src="/resources/assets/js/breakpoints.min.js"></script>

@@ -1,28 +1,64 @@
 package com.busan.main;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.busan.domain.BusanBoardVO;
+import com.busan.service.BoardService;
 
 @Controller
 @RequestMapping("/*")
 public class BoardController {
 	
+	@Autowired
+	private BoardService service;
+	@Autowired
+	private PagingAction page;
+	
+	
+	
 	@GetMapping("/Board")
-	public String Board() {	
-		return "Board";
+	public String Board(Model model,String pageNum,String field, String word) {
+		String spageNum = pageNum==null?"1":pageNum;
+		int currentPage = Integer.parseInt(spageNum);
+		int pageSize = 10;
+		int startRow = (currentPage-1)*pageSize+1;
+		int endRow = currentPage*pageSize;
+		
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("startRow", String.valueOf(startRow));
+		map.put("endRow",String.valueOf(endRow));
+		map.put("field",field);
+		map.put("word",word);
+		int count = service.getTotal(map);
+		List<BusanBoardVO> arr = service.BoardList(map);
+		String  pageHtml = page.searchpaging(count,pageSize,currentPage,field,word);
+		
+		model.addAttribute("currentPage",currentPage);
+		model.addAttribute("pageHtml",pageHtml);
+		model.addAttribute("boardlist",arr);
+		model.addAttribute("count",count);
+		
+		
+		return "/Board/Board";
 	}
 	@GetMapping("/BoardWrite")
 	public String BoardWrite() {	
-		return "BoardWrite";
+		return "/Board/BoardWrite";
 	}
 	@GetMapping(value="/gutour", produces="text/plain;charset=UTF-8")
 	public @ResponseBody String MainNews(String area) {
@@ -80,5 +116,43 @@ public class BoardController {
 		
 		return jarr.toString();
 	}
-
+	
+	@PostMapping("/BoardWrite")//글작성
+	public String BoardWrite(BusanBoardVO vo) {
+		service.BoardInsert(vo);
+		return "redirect:/Board";
+	}
+	@GetMapping("/get")//상세보기
+	public String BoardRead(Model model, Long num) {
+		BusanBoardVO vo = service.BoardRead(num);
+		vo.setContent(vo.getContent().replaceAll("\r\n", "<br>"));
+		model.addAttribute("vo",vo);
+		return "/Board/BoardRead";
+	}
+	@PostMapping("/passCheck")
+	public @ResponseBody String passCheck(Model model, Long num, String password) {
+		int flag=service.passCheck(num,password);
+		//일치 ==1
+		//불일치 ==0;
+		return String.valueOf(flag);//불일치 하면 0으로 넘어갈듯
+	}
+	
+	@GetMapping("/BoardUpdate")//수정 폼 불러오기
+	public String BoardUpdatego(Model model,Long num) {
+		BusanBoardVO vo = service.BoardRead(num);
+		model.addAttribute("vo",vo);
+		return "/Board/BoardUpdate";
+		
+	}
+	@PostMapping("/BoardUpdate")//수정
+	public String BoardUpdate(Model model, BusanBoardVO vo) {
+		service.BoardUpdate(vo);
+		return "redirect:/Board";
+	}
+	@GetMapping("/BoardDelete")
+	public String BoardDelete(Long num) {
+		System.out.println("들어오냐?:"+num);
+		service.BoardDelete(num);
+		return "redirect:/Board";
+	}
 }

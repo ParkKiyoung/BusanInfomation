@@ -2,26 +2,26 @@ package com.busan.domain;
 
 public class BusanBoardVO {
 	
-	private int num;
+	private Long num;
 	private String writer;
 	private String content;
 	private String password;
-	private String date;
+	private String writedate;
 	private String title;
 	
 	
 	
+	public Long getNum() {
+		return num;
+	}
+	public void setNum(Long num) {
+		this.num = num;
+	}
 	public String getTitle() {
 		return title;
 	}
 	public void setTitle(String title) {
 		this.title = title;
-	}
-	public int getNum() {
-		return num;
-	}
-	public void setNum(int num) {
-		this.num = num;
 	}
 	public String getWriter() {
 		return writer;
@@ -41,12 +41,13 @@ public class BusanBoardVO {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getDate() {
-		return date;
+	public String getWritedate() {
+		return writedate;
 	}
-	public void setDate(String date) {
-		this.date = date;
+	public void setWritedate(String writedate) {
+		this.writedate = writedate;
 	}
+
 	
 	
 
