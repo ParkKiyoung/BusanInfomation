@@ -160,7 +160,7 @@
 										<ul class="link-list">
 											<li><a href="#">롯데 자이언츠 야구단</a></li>
 											<li><a href="#">부산 아이파크 축구단</a></li>
-											<li><a href="#">KT 매직윙스 농구단</a></li>
+											<li><a href="#">KT 소닉붐  농구단</a></li>
 											<li><a href="#">해운대 정보</a></li>
 											<li><a href="#">서면 정보</a></li>
 										</ul>

@@ -13,7 +13,6 @@
 										<a href="Transportation">Transportation</a>
 										<a href="accommodation" >Accommodations</a>
 										<a href="Board">BOARD</a>
-										<a href="Statistics">Statistics</a>
 									</nav>
 								</header>
 

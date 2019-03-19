@@ -104,9 +104,10 @@
 							</p>
 							<h3>호텔 명 :${vo.title }</h3>
 							<p>전화번호 :${vo.tel }</p>
-							<p>홈페이지 : <a href='<c:if test="${vo.userHomepage.substring(0,7)!='https://'}">
-							http://${vo.userHomepage }
-							</c:if>'>${vo.userHomepage }</a></p>
+							<p>홈페이지 : <c:if test="${vo.userHomepage!='' }">
+							<a href=${vo.userHomepage }>${vo.userHomepage }</a>
+							</c:if>
+							</p>
 							<p>주 소 :${vo.addr }</p>
 							<p>상세정보 :${vo.content }</p>
 							<p>가 격 :${vo.price }</p>

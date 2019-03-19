@@ -10,6 +10,12 @@
 	height: 400px;
 	background-color: grey;
 }
+
+td{
+width:150px;
+height:50px;
+}
+
 </style>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script>
@@ -74,26 +80,42 @@
 						<h2>테마별 여행 추천</h2>
 						<div>
 							<div class="row">
-								<div class="col-6 col-12-small">
-									<ul class="link-list">
-										<li><a href="javascript:LuxuryTour('getLuxuryTourList')">명품관광</a></li>
-										<li><a href="javascript:themetourindex('getThemeTourList')">테마여행</a></li>
-										<li><a href="javascript:expTourIndex('getExperienceTourList')">체험여행</a></li>
-										<li><a href="javascript:tourSpot('',1,'도보여행','getWalkingTourList')">도보여행</a></li>
-									</ul>
-								</div>
-								<div class="col-6 col-12-small">
-									<ul class="link-list">
-										<li><a href="javascript:tourSpot('',1,'관광명소','getTouristAttrList')">관광명소</a></li>
-										<li><a href="javascript:tourSpot('',1,'쇼핑명소','getShoppingAttrList')">쇼핑명소</a></li>
-										<li><a href="javascript:tourSpot('',1,'스포츠/레저','getSportsList')">스포츠/레저</a></li>
-										<li><a href="javascript:tourSpot('',1,'맛집','getRestaurantList')">맛집</a></li>
-									</ul>
-								</div>
+
+								<table>
+										<tr><td>
+										<a href="javascript:LuxuryTour('getLuxuryTourList')" class="tourbutton">명품관광</a></td>
+										<td>
+										<a href="javascript:tourSpot('',1,'관광명소','getTouristAttrList')"class="tourbutton">관광명소</a></td>
+										</tr>
+										<tr>
+										<td>
+										<a href="javascript:themetourindex('getThemeTourList')"class="tourbutton">테마여행</a>
+										</td>
+										<td>
+										<a href="javascript:tourSpot('',1,'쇼핑명소','getShoppingAttrList')"class="tourbutton">쇼핑명소</a>
+										</td>
+										</tr>
+										<tr>
+										<td>
+										<a href="javascript:expTourIndex('getExperienceTourList')"class="tourbutton">체험여행</a>
+										</td>
+										<td>
+										<a href="javascript:tourSpot('',1,'스포츠/레저','getSportsList')"class="tourbutton">스포츠/레저</a>
+										</td>
+										</tr>
+										<tr>
+										<td>
+										<a href="javascript:tourSpot('',1,'도보여행','getWalkingTourList')"class="tourbutton">도보여행</a>
+										</td>
+										<td>
+										<a href="javascript:tourSpot('',1,'맛집','getRestaurantList')"class="tourbutton">맛집</a>
+										</td>
+										</tr>
+									</table>
 							</div>
 						</div>
 					</section>
-					<section >
+					<section>
 						<h2>부산 주간 날씨</h2>
 						<table>
 							<tr>
@@ -146,9 +168,10 @@
 							<p>안내전화 : ${vo.guide }</p>
 							<p>주 소 : ${vo.addr }</p>
 							<p>편의 시설 : ${vo.disest }</p>
-							<p>홈페이지 : <a href='<c:if test="${vo.userHomepage.substring(0,7)!='https://'}">
-							http://${vo.userHomepage }
-							</c:if>'>${vo.userHomepage }</a></p>
+							<p>홈페이지 : <c:if test="${vo.userHomepage!='' }">
+							<a href=${vo.userHomepage }>${vo.userHomepage }</a>
+							</c:if>
+							</p>
 							<p>가 격 : ${vo.entfree }</p>
 							<p>교통편 : ${vo.traffic }</p>
 							<p>오시는 길 : ${vo.way }</p>

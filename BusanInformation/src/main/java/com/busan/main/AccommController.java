@@ -83,6 +83,11 @@ public class AccommController {
 			vo.setTel(doc.select("tel").text());
 			vo.setTrafficin(doc.select("trafin").text().replaceAll("&ltbr&gt", "\n")+" "+doc.select("trafout").text().replaceAll("&ltbr&gt", "\n"));
 			vo.setUserHomepage(doc.select("userHomepage").text());
+			if(!vo.getUserHomepage().equals("")) {
+				if(!vo.getUserHomepage().substring(0, 7).equals("http://")) {
+					vo.setUserHomepage("http://"+vo.getUserHomepage());
+				}	
+			}
 			vo.setWgsx(doc.select("wgsx").text());
 			vo.setWgsy(doc.select("wgsy").text());
 			model.addAttribute("vo",vo);

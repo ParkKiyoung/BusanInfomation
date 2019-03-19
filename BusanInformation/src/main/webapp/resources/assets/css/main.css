@@ -1499,7 +1499,68 @@ input, select, textarea {
 		border: solid 1px #006e8b;
 		box-shadow: inset 0px 0px 0px 1px #18a8c8;
 	}
-
+	.smallbutton{
+		background-image: -moz-linear-gradient(top, #008dad, #007b9d);
+		background-image: -webkit-linear-gradient(top, #008dad, #007b9d);
+		background-image: -ms-linear-gradient(top, #008dad, #007b9d);
+		background-image: linear-gradient(top, #008dad, #007b9d);
+		display: inline-block;
+		padding: 5px 15px 5px 15px;
+		background-color: #007b9d;
+		border-radius: 10px;
+		text-transform: lowercase;
+		text-decoration: none;
+		color: #fff;
+		font-size: 0.8em;
+		letter-spacing: -1px;
+		border: solid 1px #006e8b;
+		box-shadow: inset 0px 0px 0px 1px #18a8c8;
+	}
+	.tourbutton{
+				background:#007b9d;
+				 color:#fff;
+				 border:none;
+				 position:relative;
+				 border-radius: 10px;
+				 height:60px;
+				 font-size:1.2em;
+				 padding:5px 15px 5px 15px;
+				 cursor:pointer;
+				 transition:800ms ease all;
+				 outline:none;
+	}
+	.tourbutton:hover{
+			background:#fff;
+			 color:#118eb1;
+	}
+	.tourbutton:before,.tourbutton:after{
+				content:'';
+			  position:absolute;
+			  top:0;
+			  right:0;
+			  height:2px;
+			  width:0;
+			  background: #1AAB8A;
+			  transition:400ms ease all;
+	}
+	.tourbutton:after{
+		  right:inherit;
+		  top:inherit;
+		  left:0;
+		  bottom:0;
+		}
+		.tourbutton:hover:before,.tourbutton:hover:after{
+		  width:100%;
+		  transition:800ms ease all;
+		}
+		.smallbutton:hover{
+				background-image: -moz-linear-gradient(top, #1b9fbe, #118eb1);
+					background-image: -webkit-linear-gradient(top, #1b9fbe, #118eb1);
+					background-image: -ms-linear-gradient(top, #1b9fbe, #118eb1);
+					background-image: linear-gradient(top, #1b9fbe, #118eb1);
+					background-color: #118eb1;
+					box-shadow: inset 0px 0px 0px 1px #3ecceb;
+		}
 		.button:hover {
 			background-image: -moz-linear-gradient(top, #1b9fbe, #118eb1);
 			background-image: -webkit-linear-gradient(top, #1b9fbe, #118eb1);

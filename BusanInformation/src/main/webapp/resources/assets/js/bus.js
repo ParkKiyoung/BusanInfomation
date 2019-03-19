@@ -83,7 +83,11 @@ function StationInfo(line,linename,code,pageNo,lineId){
 		stationIndex+="<table><tr><th>정류소명</th><th>방향/버스</th></tr>";
 		for(var i = 0 ; i<data.length;i++){
 			stationIndex+="<tr>";
-			stationIndex+="<td>"+data[i].bstopnm+"</td>";
+			stationIndex+="<td height=50px"
+				if(data[i].direction==1||data[i].direction==2){
+					stationIndex+=" style='font-weight:bold;'"
+				}
+			stationIndex+=	">"+data[i].bstopnm+"</td>";
 			if(data[i].direction==1){
 				stationIndex+="<th>상행/버스접근중</th>";
 			}else if(data[i].direction==2){

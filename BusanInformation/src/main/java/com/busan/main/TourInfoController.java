@@ -171,11 +171,6 @@ public class TourInfoController {
 			}
 			model.addAttribute("weatherlist",arr);
 			
-			
-			
-			
-			
-			
 			BusanTourInfo vo = new BusanTourInfo();
 			doc = Jsoup.connect(url).get();
 			vo.setTitle(doc.select("dataTitle").text().replaceAll("&ltbr&gt", "\n"));//제목
@@ -191,6 +186,11 @@ public class TourInfoController {
 			vo.setForguid(doc.select("forguid").text().replaceAll("&ltbr&gt", "\n"));//통역
 			vo.setDisest(doc.select("disest").text().replaceAll("&ltbr&gt", "\n"));//편의 시설
 			vo.setUserHomepage(doc.select("userHomepage").text().replaceAll("&ltbr&gt", "\n"));
+			if(!vo.getUserHomepage().equals("")) {
+				if(!vo.getUserHomepage().substring(0, 7).equals("http://")) {
+					vo.setUserHomepage("http://"+vo.getUserHomepage());
+				}	
+			}
 			vo.setWgsx(doc.select("wgsx").text());
 			vo.setWgsy(doc.select("wgsy").text());
 			

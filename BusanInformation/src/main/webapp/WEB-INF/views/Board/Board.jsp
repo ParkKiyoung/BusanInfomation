@@ -89,8 +89,7 @@
 							<hr>
 							<table>
 								<tr>
-									<td colspan=4 align=right height=30px><input type=button
-										value="글 작성" onclick="Boardwrite()"></td>
+									<td colspan=4 align=right height=30px><a href="javascript:Boardwrite()" class="smallbutton">글 작성</a></td>
 								</tr>
 								<tr>
 									<td width=100px height=30px>글번호</td>
@@ -106,10 +105,11 @@
 											...
 											</c:if>
 										</a></td>
-										<td>${fn:substring(i.writer,0,3)}</td>
+										<td>${fn:substring(i.writer,0,3)}
 										<c:if test="${fn:length(i.writer)>3 }">
 											...
 											</c:if>
+											</td>
 										<td>${i.writedate }</td>
 									</tr>
 								</c:forEach>
@@ -120,8 +120,8 @@
 								<option value=title>제목</option>
 								<option value=content>내용</option>
 							</select> <input type=text id="word" name="word"> 
-							<input type="button" value="검색" onclick="searchBtn()"><br>
-							<input type=button value="전체보기" onclick="location.href='Board'">
+							<a href="javascript:searchBtn()" class="smallbutton">검색</a>	<a href="Board" class="smallbutton">전체보기</a>
+							</div>
 						</div>
 					</div>
 				</div>
