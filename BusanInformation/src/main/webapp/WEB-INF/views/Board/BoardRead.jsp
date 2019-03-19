@@ -83,7 +83,7 @@
 										<th colspan=4 align=center height=50>내용</th>
 									</tr>
 									<tr>
-										<td colspan=4 width=300 height=300>${vo.content }</td>
+										<td colspan=4 width=300 height=300 valign=top>${vo.content }</td>
 									</tr>
 									<tr>
 										<td>비밀번호</td>

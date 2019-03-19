@@ -16,7 +16,40 @@
 	src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBx-ZvaEFHhjEzLZQn101vF6zGvNptSGxI&callback=initMap"></script>
 <!-- 구글맵 API -->
 <script>
-	
+	function initMap() { // 지도 요청시 callback으로 호출될 메서드 부분으로 지도를 맨처음 초기화하고, 표시해주는
+		// 함수
+		var latVal = ${vo.wgsx};
+		var lngVal = ${vo.wgsy};
+
+		var mapLocation = {
+			lat : latVal,
+			lng : lngVal
+		}; // 위도, 경도를 가지는 객체를 생성
+		/*
+		 * var map = new google.maps.Map(document.getElementById('map'), { // 위의 div
+		 * id="map" 부분에 지도를 추가하는 부분 zoom: 18, // 확대 정도(ZOOM) center: uluru // 지도에
+		 * 표시해주는 중심이 우리가 만든 객체의 위치를 지정해주도록 함 });
+		 */
+		var mapOptions = {
+			center : mapLocation, // 지도에서 가운데로 위치할 위도와 경도(변수)
+			zoom : 18, // 지도 zoom단계
+			mapTypeId : google.maps.MapTypeId.ROADMAP
+		};
+		var map = new google.maps.Map(document.getElementById("map"), // id:
+		// map-canvas,
+		// body에 있는
+		// div태그의
+		// id와 같아야 함
+		mapOptions);
+		if (latVal == null || latVal == "-") {
+			mapLocation = null;
+		}
+		var marker = new google.maps.Marker({
+			position : mapLocation,
+			map : map
+		});
+
+	}
 </script>
 <head>
 <title>부산 정보 포털</title>
@@ -69,10 +102,7 @@
 							<p>
 								<img src="${vo.imgSrc}">
 							</p>
-
-							<p id=map></p>
-
-							<p>호텔 명 :${vo.title }</p>
+							<h3>호텔 명 :${vo.title }</h3>
 							<p>전화번호 :${vo.tel }</p>
 							<p>
 								홈페이지 : <a href="">${vo.userHomepage }</a>
@@ -81,6 +111,10 @@
 							<p>상세정보 :${vo.content }</p>
 							<p>가 격 :${vo.price }</p>
 							<p>오시는 길 :${vo.trafficin }</p>
+							<c:if test="${vo.wgsx!='-'}">
+							<p id=map></p>
+							</c:if>
+							
 						</section>
 
 					</div>
@@ -91,7 +125,6 @@
 		<!-- Footer -->
 		<%@include file="../includes/busanFooter.jsp"%>
 		<!-- Scripts -->
-		<script src="/resources/assets/js/googlemap.js"></script>
 		<script src="/resources/assets/js/jquery.min.js"></script>
 		<script src="/resources/assets/js/browser.min.js"></script>
 		<script src="/resources/assets/js/breakpoints.min.js"></script>

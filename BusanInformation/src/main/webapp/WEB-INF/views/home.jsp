@@ -110,7 +110,7 @@
 		<!-- Banner -->
 		<div id="banner-wrapper">
 			<div class="container">
-				<iframe width="1300" height="500"
+				<iframe width="1200" height="500"
 					src="https://www.youtube.com/embed/wBo1BSbq4ek?controls=0"
 					frameborder="0"
 					allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"

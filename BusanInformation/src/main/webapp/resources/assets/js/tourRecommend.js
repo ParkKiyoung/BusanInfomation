@@ -87,26 +87,5 @@ function exptour(course,pageNo,place,theme){
 }
 //====================================================상세보기=========================================================
 function empView(course,datasid,pageNo,place,theme){//상세보기
-	$.get("/empView",{"datasid":datasid}, function(data) {
-		var empViewText = "";
-		$("#pageHtml").html("<a href='javascript:exptour(\""+course+"\","+pageNo+",\""+place+"\",\""+theme+"\")'>목록으로 돌아가기</a>");
-		empViewText+="<h2 align = center>"+data.title+"</h2>"
-		empViewText+="<p align = center>"
-			empViewText+=" <img src="+data.imgSrc+"></p>"
-			empViewText+="<p>장소 명 : "+data.title+"</p>"
-			empViewText+="<p>전화번호 : "+data.tel+"</p>"
-			empViewText+="<p>안내전화 : "+data.guide+"</p>"
-			empViewText+="<p>주 소 : "+data.addr+"</p>"
-			empViewText+="<p>편의 시설 : "+data.disest+"</p>"
-			empViewText+="<p>홈페이지 : <a href='"
-				if(data.userHomepage.substring(0,7)!='https://'){
-					empViewText+="https://"
-				}
-		empViewText+=data.userHomepage+"'>"+data.userHomepage+"</a></p>"
-		empViewText+="<p>가 격 : "+data.entfree+"</p>"
-		empViewText+="<p>교통편 : "+data.traffic+"</p>"
-		empViewText+="<p>오시는 길 : "+data.way+"</p>"
-		empViewText+="<p>상세정보 : "+data.content+"</p>"
-		$("#tourInfo").html(empViewText);
-	})
+		location.href="/empView?datasid="+datasid
 }

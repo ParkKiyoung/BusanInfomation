@@ -11,6 +11,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -30,7 +31,7 @@ public class TransController {
 	String myapi = "F3RKR%2FvO05WMjgbXcNLYkUXIvJfX9WlREEmv1M6GhxceQUnsJBYynbCMu9NVA2rFzp1zGxOiG9V1QLjCSWTqlg%3D%3D";
 	@GetMapping("/Transportation")
 	public String Transportation() {	
-		return "transportation";
+		return "/transportation/transportation";
 	}
 	
 	@GetMapping(value="/bus", produces="text/plain;charset=UTF-8")
@@ -78,7 +79,6 @@ public class TransController {
 					jarr.add(jobj);
 				}
 			}
-			
 			}catch(IOException e) {
 				e.printStackTrace();
 			}
@@ -109,6 +109,28 @@ public class TransController {
 			e.printStackTrace();
 		}
 		return jarr.toString();
+	}
+	@GetMapping("/subwayLine1")
+	public String Line1Call() {
+		return "/transportation/subwayLine1";
+	}
+	@GetMapping("/subwayLine2")
+	public String Line2Call() {
+		return "/transportation/subwayLine2";
+	}
+	@GetMapping("/subwayLine3")
+	public String Line3Call() {
+		return "/transportation/subwayLine3";
+	}
+	@GetMapping("/subwayLine4")
+	public String Line4Call() {
+		return "/transportation/subwayLine4";
+	}
+	@GetMapping("/subinfo")
+	public String subinfo(Model model, String scode) {
+		
+		model.addAttribute("scode",scode);
+		return "/transportation/subwayView";
 	}
 
 }
