@@ -1,80 +1,53 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-				<div id="footer-wrapper">
-					<div class="container">
-						<div class="row">
-							<div class="col-8 col-12-medium">
+	pageEncoding="UTF-8"%>
+	<style>
+	.footer{
+	width:300px;
+	height:50px
+	}
+	.footerText{
+	width:1000px;
+	height:60px;
+	}
+	
+	</style>
+<div id="footer-wrapper">
+	<div class="container">
+		<div class="row">
+			<div class="col-8 col-12-medium">
 
-								<section>
-									<h2>How about a truckload of links?</h2>
-									<div>
-										<div class="row">
-											<div class="col-3 col-6-medium col-12-small">
-												<ul class="link-list">
-													<li><a href="#">Sed neque nisi consequat</a></li>
-													<li><a href="#">Dapibus sed mattis blandit</a></li>
-													<li><a href="#">Quis accumsan lorem</a></li>
-													<li><a href="#">Suspendisse varius ipsum</a></li>
-													<li><a href="#">Eget et amet consequat</a></li>
-												</ul>
-											</div>
-											<div class="col-3 col-6-medium col-12-small">
-												<ul class="link-list">
-													<li><a href="#">Quis accumsan lorem</a></li>
-													<li><a href="#">Sed neque nisi consequat</a></li>
-													<li><a href="#">Eget et amet consequat</a></li>
-													<li><a href="#">Dapibus sed mattis blandit</a></li>
-													<li><a href="#">Vitae magna sed dolore</a></li>
-												</ul>
-											</div>
-											<div class="col-3 col-6-medium col-12-small">
-												<ul class="link-list">
-													<li><a href="#">Sed neque nisi consequat</a></li>
-													<li><a href="#">Dapibus sed mattis blandit</a></li>
-													<li><a href="#">Quis accumsan lorem</a></li>
-													<li><a href="#">Suspendisse varius ipsum</a></li>
-													<li><a href="#">Eget et amet consequat</a></li>
-												</ul>
-											</div>
-											<div class="col-3 col-6-medium col-12-small">
-												<ul class="link-list">
-													<li><a href="#">Quis accumsan lorem</a></li>
-													<li><a href="#">Sed neque nisi consequat</a></li>
-													<li><a href="#">Eget et amet consequat</a></li>
-													<li><a href="#">Dapibus sed mattis blandit</a></li>
-													<li><a href="#">Vitae magna sed dolore</a></li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</section>
-
-							</div>
-							<div class="col-4 col-12-medium">
-
-								<section>
-									<h2>Something of interest</h2>
-									<p>Duis neque nisi, dapibus sed mattis quis, rutrum accumsan sed.
-									Suspendisse eu varius nibh. Suspendisse vitae magna eget odio amet
-									mollis justo facilisis quis. Sed sagittis mauris amet tellus gravida
-									lorem ipsum dolor sit blandit.</p>
-									<footer class="controls">
-										<a href="#" class="button">Oh, please continue ....</a>
-									</footer>
-								</section>
-
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-12">
-
-								<div id="copyright">
-									&copy; Untitled. All rights reserved. | Design: <a href="http://html5up.net">HTML5 UP</a>
-								</div>
-
-							</div>
-						</div>
+				
+					<div align = center>
+						<table>
+							<tr>
+								<th class=footer><a href="">약관</a></th>
+								<th class=footer><a href="">저작권보호정책</a></th>
+								<th class=footer><a href="">개인정보보호방칭</a></th>
+								<th class=footer><a href="">행정서비스현황</a></th>
+								<th class=footer><a href="">뷰어다운로드</a></th>
+							</tr>
+							<tr>
+								<td colspan=5 class=footerText>부산관광안내 1330 / 민원대표전화 051-120(평일 08:30-18:30,
+								</td>
+							</tr>
+							<tr>
+								<td colspan=5 class=footerText>※야간/공휴일 등 근무시간외는 당직실 전환) (우 47545) 부산광역시 연제구
+									중앙대로 1001(연산동)</td>
+							</tr>
+						</table>
 					</div>
-				</div>
+				
 
+			</div>
 		</div>
+		<div class="row">
+			<div class="col-12">
+
+				<div id="copyright">&copy; Busan Tour. All rights reserved</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+</div>
