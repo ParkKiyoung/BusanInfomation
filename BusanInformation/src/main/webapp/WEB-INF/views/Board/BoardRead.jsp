@@ -88,8 +88,10 @@
 									<tr>
 										<td>비밀번호</td>
 										<td><input type=password id=password name="password"></td>
-										<td colspan=4 align=center><input type=button
-											value="수정/삭제" onclick="checkpass()"></td>
+										<td colspan=2 align=center><input type=button
+											value="수정/삭제" onclick="checkpass()">
+											<input type=button
+											value="목록가기" onclick="location.href='/Board'"></td>
 									</tr>
 								</table>
 
