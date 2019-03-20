@@ -51,6 +51,7 @@ public class AccommController {
 			int totalCount = Integer.parseInt(doc.select("totalCount").text());
 			Elements item = doc.select("item");
 			String pageHtml = page.paging(totalCount, numOfRows, pageNO);
+			
 			for(int i = 0 ;i<item.size();i++) {
 				JSONObject jobj = new JSONObject();
 				String title = item.get(i).select("dataTitle").text();

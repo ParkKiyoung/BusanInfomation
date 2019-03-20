@@ -3,6 +3,12 @@
 
 <!DOCTYPE HTML>
 <html>
+<style>
+th{
+width:2000px;
+height:50px;
+}
+</style>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script>
 

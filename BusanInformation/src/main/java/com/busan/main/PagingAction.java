@@ -17,6 +17,7 @@ public class PagingAction {
 		
 		StringBuffer sb = new StringBuffer();
 		if(count>0) {
+			sb.append("<div class='pagination'>");
 			if(startPage>blockPage) {
 				sb.append("<a href=javascript:HotelPaging(");
 				sb.append((startPage-blockPage));
@@ -24,11 +25,11 @@ public class PagingAction {
 			}
 			for(int i = startPage ; i<=endPage ; i++) {
 				if(i==currentPage) {
-					sb.append("["+i+"]");
+					sb.append("<a href='#' class='active'>"+i+"</a>");
 				}else {
 					sb.append("<a href=javascript:HotelPaging(");
 					sb.append(i);
-					sb.append(")>["+i+"]</a>");
+					sb.append(")>"+i+"</a>");
 				}
 			}
 			if(endPage<totPage) {
@@ -36,6 +37,7 @@ public class PagingAction {
 				sb.append((startPage+blockPage));
 				sb.append(")>[다음]</a>");
 			}
+			sb.append("</div>");
 			
 		}
 
@@ -52,18 +54,20 @@ public class PagingAction {
 		
 		StringBuffer sb = new StringBuffer();
 		if(count>0) {
+			sb.append("<div class='pagination'>");
 			if(startPage>blockPage) {
+				
 				sb.append("<a href=javascript:"+fx+"('");
 				sb.append(course+"',"+(startPage-blockPage)+",'"+place+"','"+theme);
 				sb.append("')>[이전]</a>");
 			}
 			for(int i = startPage ; i<=endPage ; i++) {
 				if(i==currentPage) {
-					sb.append("["+i+"]");
+					sb.append("<a href='#' class='active'>"+i+"</a>");
 				}else {
 					sb.append("<a href=javascript:"+fx+"('");
 					sb.append(course+"',"+i+",'"+place+"','"+theme);
-					sb.append("')>["+i+"]</a>");
+					sb.append("')>"+i+"</a>");
 				}
 			}
 			if(endPage<totPage) {
@@ -71,6 +75,7 @@ public class PagingAction {
 				sb.append(course+"',"+(startPage+blockPage)+",'"+place+"','"+theme);
 				sb.append("')>[다음]</a>");
 			}
+			sb.append("</div>");
 		}
 		return sb.toString();
 	}
@@ -85,6 +90,7 @@ public class PagingAction {
 		
 		StringBuffer sb = new StringBuffer();
 		if(count>0) {
+			sb.append("<div class='pagination'>");
 			if(startPage>blockPage) {
 				sb.append("<a href=javascript:"+fx+"('");
 				sb.append(code+"','"+linename+"',"+(startPage-blockPage));
@@ -92,11 +98,11 @@ public class PagingAction {
 			}
 			for(int i = startPage ; i<=endPage ; i++) {
 				if(i==currentPage) {
-					sb.append("["+i+"]");
+					sb.append("<a href='#' class='active'>"+i+"</a>");
 				}else {
 					sb.append("<a href=javascript:"+fx+"('");
 					sb.append(code+"','"+linename+"',"+i);
-					sb.append(")>["+i+"]</a>");
+					sb.append(")>"+i+"</a>");
 				}
 			}
 			if(endPage<totPage) {
@@ -104,6 +110,7 @@ public class PagingAction {
 				sb.append(code+"','"+linename+"',"+(startPage+blockPage));
 				sb.append(")>[다음]</a>");
 			}
+			sb.append("</div>");
 		}
 		return sb.toString();
 	}
@@ -117,6 +124,7 @@ public class PagingAction {
 		
 		StringBuffer sb = new StringBuffer();
 		if(count>0) {
+			sb.append("<div class='pagination'>");
 			if(startPage>blockPage) {
 				sb.append("<a href=/Board?pageNum=");
 				sb.append((startPage-blockPage));
@@ -124,11 +132,11 @@ public class PagingAction {
 			}
 			for(int i = startPage ; i<=endPage;i++) {
 				if(i==currentPage) {
-					sb.append("["+i+"]");
+					sb.append("<a href='#' class='active'>"+i+"</a>");
 				}else {
 					sb.append("<a href=/Board?pageNum=");
 					sb.append(i);
-					sb.append("&field="+field+"&word="+word+">["+i+"]</a>");
+					sb.append("&field="+field+"&word="+word+">"+i+"</a>");
 				}
 			}
 			if(endPage<totPage) {
@@ -136,6 +144,7 @@ public class PagingAction {
 				sb.append((startPage+blockPage));
 				sb.append("&field="+field+"&word="+word+">[다음]</a>");
 			}
+			sb.append("</div>");
 		}
 		
 		return sb.toString();

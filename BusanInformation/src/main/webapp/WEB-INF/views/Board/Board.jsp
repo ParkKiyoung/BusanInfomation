@@ -4,6 +4,19 @@
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE HTML>
 <html>
+<style>
+.boardlink:link {
+	text-decoration: none;
+}
+
+.boardlink:hover {
+	text-decoration: none;
+}
+
+.boardtable td {
+	height: 40px;
+}
+</style>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script>
 	function gutour(area, guname) {
@@ -87,46 +100,48 @@
 						<div id=div.board align=center>
 							<h3>여행 후기를 볼 수 있는 게시판입니다.</h3>
 							<hr>
-							<table>
-								<tr>
-									<td colspan=4 align=right height=30px><a href="javascript:Boardwrite()" class="smallbutton">글 작성</a></td>
-								</tr>
-								<tr>
-									<td width=100px height=30px>글번호</td>
-									<td width=400px>제목</td>
-									<td width=100px>작성자</td>
-									<td width=100px>작성일</td>
-								</tr>
+							<table class="boardtable">
+								<thead>
+									<tr>
+										<td width=100px height=30px>글번호</td>
+										<td width=400px>제목</td>
+										<td width=100px>작성자</td>
+										<td width=100px>작성일</td>
+									</tr>
+								</thead>
 								<c:forEach items="${boardlist}" var="i">
 									<tr>
 										<td>${i.num }</td>
-										<td><a href="/get?num=${i.num}">${fn:substring(i.title,0,15) }
+										<td><a class="boardlink" href="/get?num=${i.num}">${fn:substring(i.title,0,15) }
 												<c:if test="${fn:length(i.title)>15 }">
 											...
 											</c:if>
 										</a></td>
-										<td>${fn:substring(i.writer,0,3)}
-										<c:if test="${fn:length(i.writer)>3 }">
+										<td>${fn:substring(i.writer,0,3)}<c:if
+												test="${fn:length(i.writer)>3 }">
 											...
 											</c:if>
-											</td>
+										</td>
 										<td>${i.writedate }</td>
 									</tr>
 								</c:forEach>
 							</table>
-							<br> ${pageHtml } <br> <select id=field name=field>
+							<br> ${pageHtml } <br> 
+							<select id=field name=field>
 								<option value="">선택</option>
 								<option value=writer>작성자</option>
 								<option value=title>제목</option>
 								<option value=content>내용</option>
-							</select> <input type=text id="word" name="word"> 
-							<a href="javascript:searchBtn()" class="smallbutton">검색</a>	<a href="Board" class="smallbutton">전체보기</a>
-							</div>
+							</select> <input type=text id="word" name="word"> <a
+								href="javascript:searchBtn()" class="smallbutton">검색</a> <a
+								href="Board" class="smallbutton">전체보기</a><a
+								href="javascript:Boardwrite()" class="smallbutton">글 작성</a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 	<!-- Footer -->
 	<%@include file="../includes/busanFooter.jsp"%>
