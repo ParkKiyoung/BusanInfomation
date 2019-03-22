@@ -6,6 +6,35 @@
 
 <!DOCTYPE HTML>
 <html>
+<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Hi+Melody|Sunflower:300&amp;subset=korean" rel="stylesheet">
+<style>
+h2.koreanFont{
+font-family: 'Do Hyeon', sans-serif;
+font-size: 50px;
+}
+table td{
+font-family: 'Hi Melody', cursive;
+font-size: 20px;
+}
+h3.koreanFont{
+font-family: 'Do Hyeon', sans-serif;
+font-size: 40px;
+}
+a.koreanFont{
+font-family: 'Hi Melody', cursive;
+font-size: 25px;
+
+}
+a.koreanFont:link {
+	text-decoration: none;
+}
+
+a.koreanFont:hover {
+	text-decoration: none;
+}
+
+
+</style>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script>
 	$(document)
@@ -17,11 +46,11 @@
 							newsBoard += "<table>"
 							for (var i = 0; i < data.length; i++) {
 								newsBoard += "<tr><td height=45px>"
-								newsBoard += "<a href="+data[i].link+">"
+								newsBoard += "<a href="+data[i].link+" class='koreanFont'>"
 										+ (i + 1) + ". "
 								newsBoard += data[i].title.substring(0, 20)
 								if (data[i].title.length > 20) {
-									newsBoard += "...[더보기]"
+									newsBoard += "..."
 								}
 								newsBoard += "</a></td></tr>"
 							}
@@ -65,7 +94,7 @@
 							Blog += "<table>"
 							for (var i = 0; i < data.length; i++) {
 								Blog += "<tr><td height=45px>"
-								Blog += "<a href="+data[i].link+">" + (i + 1)
+								Blog += "<a href="+data[i].link+" class='koreanFont'>" + (i + 1)
 										+ ". "
 								Blog += data[i].title.substring(0, 20)
 								if (data[i].title.length > 20) {
@@ -82,7 +111,7 @@
 							Blog += "<table>"
 							for (var i = 0; i < data.length; i++) {
 								Blog += "<tr><td height=45px>"
-								Blog += "<a href="+data[i].link+">" + (i + 1)
+								Blog += "<a href="+data[i].link+" class='koreanFont'>" + (i + 1)
 										+ ". "
 								Blog += data[i].title.substring(0, 20)
 								if (data[i].title.length > 20) {
@@ -127,7 +156,7 @@
 					<div class="col-4 col-12-medium">
 
 						<section>
-							<h2>부산 여행 기사</h2>
+							<h2 class=koreanFont>부산 여행 기사</h2>
 							<span id="tourNews"> </span>
 
 						</section>
@@ -136,7 +165,7 @@
 					<div class="col-4 col-6-medium col-12-small">
 
 						<section>
-							<h2>오늘 부산 날씨</h2>
+							<h2 class=koreanFont>오늘 부산 날씨</h2>
 							<span id="busanweather"></span>
 						</section>
 
@@ -144,25 +173,25 @@
 					<div class="col-4 col-6-medium col-12-small">
 
 						<section>
-							<h2>이런곳은 어때요?</h2>
+							<h2 class=koreanFont>이런곳은 어때요?</h2>
 							<div>
 								<div class="row">
 									<div class="col-6 col-12-small">
 										<ul class="link-list">
-											<li><a href="#">한국 관광공사</a></li>
-											<li><a href="#">부산 관광공사</a></li>
-											<li><a href="#">부산 문화회관</a></li>
-											<li><a href="#">부산 시 행사</a></li>
-											<li><a href="#">부산 시티투어</a></li>
+											<li><a href="#" class='koreanFont'>한국 관광공사</a></li>
+											<li><a href="#" class='koreanFont'>부산 관광공사</a></li>
+											<li><a href="#" class='koreanFont'>부산 문화회관</a></li>
+											<li><a href="#" class='koreanFont'>부산 시 행사</a></li>
+											<li><a href="#" class='koreanFont'>부산 시티투어</a></li>
 										</ul>
 									</div>
 									<div class="col-6 col-12-small">
 										<ul class="link-list">
-											<li><a href="#">롯데 자이언츠 야구단</a></li>
-											<li><a href="#">부산 아이파크 축구단</a></li>
-											<li><a href="#">KT 소닉붐  농구단</a></li>
-											<li><a href="#">해운대 정보</a></li>
-											<li><a href="#">서면 정보</a></li>
+											<li><a href="#" class='koreanFont'>자이언츠 야구단</a></li>
+											<li><a href="#" class='koreanFont'>아이파크 축구단</a></li>
+											<li><a href="#" class='koreanFont'>KT 소닉붐  농구단</a></li>
+											<li><a href="#" class='koreanFont'>해운대 정보</a></li>
+											<li><a href="#" class='koreanFont'>서면 정보</a></li>
 										</ul>
 									</div>
 								</div>
@@ -173,10 +202,10 @@
 					<div class="col-6 col-12-medium">
 
 						<section>
-							<h2>부산 여행 블로그 보러가기</h2>
-							<h3>네이버 블로그</h3>
+							<h2 class=koreanFont>부산 여행 블로그 보러가기</h2>
+							<h3 class=koreanFont>네이버 블로그</h3>
 							<span id="naverBlog"></span>
-							<h3>다음 블로그</h3>
+							<h3 class=koreanFont>다음 블로그</h3>
 							<span id="daumBlog"></span>
 						</section>
 
@@ -184,7 +213,7 @@
 					<div class="col-6 col-12-medium">
 
 						<article class="blog-post">
-							<h2>부산시 홍보 영상</h2>
+							<h2 class=koreanFont>부산시 홍보 영상</h2>
 							<iframe width="560" height="315"
 								src="https://www.youtube.com/embed/Q2Izo0J0uVU" frameborder="0"
 								allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"

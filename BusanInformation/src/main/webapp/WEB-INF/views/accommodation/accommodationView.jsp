@@ -4,12 +4,33 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE HTML>
 <html>
+<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Hi+Melody|Sunflower:300&amp;subset=korean" rel="stylesheet">
 <style>
 #map {
 	width: 100%;
 	height: 400px;
 	background-color: grey;
 }
+.col-4 h2.koreanFont{
+font-family: 'Do Hyeon', sans-serif;
+font-size: 40px;
+}
+section h2.koreanFont{
+font-family: 'Do Hyeon', sans-serif;
+font-size: 50px;
+}
+.tourbutton{
+font-family: 'Sunflower', sans-serif;
+}
+h3.contentTitle{
+font-family: 'Do Hyeon', sans-serif;
+font-size: 29px;
+}
+p.content{
+font-family: 'Hi Melody', cursive;
+font-size: 20px;
+}
+
 </style>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script async defer
@@ -69,25 +90,25 @@
 				<div class="row main-row">
 					<div class="col-4 col-12-medium">
 						<section>
-							<h2>호텔 예매 사이트</h2>
+							<h2 class=koreanFont>호텔 예매 사이트</h2>
 							<div>
 								<div class="row">
 									<div class="col-6 col-12-small">
 										<ul class="link-list">
-											<li><a href="#">익스피디아</a></li>
-											<li><a href="#">호텔스 컴바인</a></li>
-											<li><a href="#">부킹닷컴</a></li>
-											<li><a href="#">트리바고</a></li>
-											<li><a href="#">호텔스닷컴</a></li>
+											<li><a href="#" class="tourbutton">익스피디아</a></li>
+											<li><a href="#" class="tourbutton">호텔스 컴바인</a></li>
+											<li><a href="#" class="tourbutton">부킹닷컴</a></li>
+											<li><a href="#" class="tourbutton">트리바고</a></li>
+											<li><a href="#" class="tourbutton">호텔스닷컴</a></li>
 										</ul>
 									</div>
 									<div class="col-6 col-12-small">
 										<ul class="link-list">
-											<li><a href="#">여기 어떄</a></li>
-											<li><a href="#">야놀자</a></li>
-											<li><a href="#">에어비앤비</a></li>
-											<li><a href="#">인터파크</a></li>
-											<li><a href="#">하나Free</a></li>
+											<li><a href="#" class="tourbutton">여기 어떄</a></li>
+											<li><a href="#" class="tourbutton">야놀자</a></li>
+											<li><a href="#" class="tourbutton">에어비앤비</a></li>
+											<li><a href="#" class="tourbutton">인터파크</a></li>
+											<li><a href="#" class="tourbutton">하나Free</a></li>
 										</ul>
 									</div>
 								</div>
@@ -98,20 +119,20 @@
 					<div class="col-8 col-12-medium imp-medium">
 
 						<section>
-							<h2>숙박업소 목록</h2>
+							<h2 class=koreanFont>숙박업소 목록</h2>
 							<p>
 								<img src="${vo.imgSrc}">
 							</p>
-							<h3>호텔 명 :${vo.title }</h3>
-							<p>전화번호 :${vo.tel }</p>
-							<p>홈페이지 : <c:if test="${vo.userHomepage!='' }">
+							<h3 class="contentTitle">호텔 명 :${vo.title }</h3>
+							<p class="content">전화번호 :${vo.tel }</p>
+							<p class="content">홈페이지 : <c:if test="${vo.userHomepage!='' }">
 							<a href=${vo.userHomepage }>${vo.userHomepage }</a>
 							</c:if>
 							</p>
-							<p>주 소 :${vo.addr }</p>
-							<p>상세정보 :${vo.content }</p>
-							<p>가 격 :${vo.price }</p>
-							<p>오시는 길 :${vo.trafficin }</p>
+							<p class="content">주 소 :${vo.addr }</p>
+							<p class="content">상세정보 :${vo.content }</p>
+							<p class="content">가 격 :${vo.price }</p>
+							<p class="content">오시는 길 :${vo.trafficin }</p>
 							<c:if test="${vo.wgsx!='-'}">
 							<p id=map></p>
 							</c:if>

@@ -98,4 +98,36 @@ public class AccommController {
 		}
 		return "/accommodation/accommodationView";
 	}
+	@GetMapping(value="/hotelSearch", produces="text/plain;charset=UTF-8")
+	public @ResponseBody String hotelSearch(String word) {
+		String endpoint = "http://apis.data.go.kr/6260000/BusanTourInfoService";
+		String getStayList="getStayList";
+		String url= endpoint+"/"+getStayList+"?serviceKey="+myapi+"&numOfRows=200";
+		JSONArray jarr = new JSONArray();
+		try {
+			Document doc = Jsoup.connect(url).get();
+			int totalCount = Integer.parseInt(doc.select("totalCount").text());
+			Elements item = doc.select("item");
+			
+			for(int i = 0 ;i<item.size();i++) {
+				JSONObject jobj = new JSONObject();
+				String title = item.get(i).select("dataTitle").text();
+				if(title.contains(word)) {
+					String content = item.get(i).select("dataContent").text();
+					String datasid = item.get(i).select("dataSid").text();
+					jobj.put("title",title);
+					jobj.put("content",content);
+					jobj.put("datasid",datasid);
+					jarr.add(jobj);
+				}
+			}
+			}catch(IOException e) {
+				e.printStackTrace();
+			}
+		System.out.println(jarr.toString());
+		return jarr.toString();
+	}
+	
+	
+	
 }
