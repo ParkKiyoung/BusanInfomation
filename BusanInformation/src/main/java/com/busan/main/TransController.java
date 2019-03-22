@@ -132,5 +132,46 @@ public class TransController {
 		model.addAttribute("scode",scode);
 		return "/transportation/subwayView";
 	}
+	
+	@GetMapping(value="/busSearch", produces="text/plain;charset=UTF-8")
+	public @ResponseBody String busSearch(String num){
+		String http="http://61.43.246.153/openapi-data/service/busanBIMS2";
+		String url = http+"/busInfo?serviceKey="+myapi;
+		JSONArray jarr = new JSONArray();
+		try {
+			Document doc = Jsoup.connect(url).get();
+			Elements item = doc.select("item");
+			for(int i = 0 ; i<item.size();i++) {
+				String buslinenum = item.get(i).select("buslinenum").text();//버스번호
+				if(buslinenum.contains(num)) {
+					JSONObject jobj = new JSONObject();
+					buslinenum = item.get(i).select("buslinenum").text();//버스번호
+					String startpoint = item.get(i).select("startpoint").text();//시작점
+					String endpoint = item.get(i).select("endpoint").text();//종점
+					String firsttime = item.get(i).select("firsttime").text();//첫차시간
+					String endtime = item.get(i).select("endtime").text();//막차시간
+					String headwayNorm = item.get(i).select("headwayNorm").text();//일반배차
+					String headwayPeak = item.get(i).select("headwayPeak").text();//출퇴근시간배차
+					String headwayHoli = item.get(i).select("headwayHoli").text();//휴일배차
+					String lineId = item.get(i).select("lineId").text();//라인 아이디
+					//buslinenum.contentEquals("")부분일치 확인 boolean 형태
+					jobj.put("lineId",lineId);
+					jobj.put("buslinenum",buslinenum);
+					jobj.put("startpoint",startpoint);
+					jobj.put("endpoint",endpoint);
+					jobj.put("firsttime",firsttime);
+					jobj.put("endtime",endtime);
+					jobj.put("headwayNorm",headwayNorm);
+					jobj.put("headwayPeak",headwayPeak);
+					jobj.put("headwayHoli",headwayHoli);
+					jarr.add(jobj);
+				}
+			}
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
+		
+		return jarr.toString();
+	}
 
 }

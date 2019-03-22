@@ -3,10 +3,27 @@
 
 <!DOCTYPE HTML>
 <html>
+<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Gamja+Flower|Hi+Melody|Sunflower:300&amp;subset=korean" rel="stylesheet">
 <style>
-th{
-width:2000px;
+td{
 height:50px;
+}
+#lineInfo h2.koreanFont{
+font-family: 'Do Hyeon', sans-serif;
+font-size: 50px;
+}
+.col-4 h2.koreanFont{
+font-family: 'Do Hyeon', sans-serif;
+font-size: 40px;
+}
+.tranportButton{
+font-family: 'Sunflower', sans-serif;
+}
+table th{
+font-family: 'Gamja Flower', cursive;
+}
+table td{
+font-family: 'Gamja Flower', cursive;
 }
 </style>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -31,25 +48,25 @@ height:50px;
 				<div class="row main-row">
 					<div class="col-4 col-12-medium">
 						<section>
-							<h2 align=center>대중교통 정보</h2>
+							<h2 align=center class='koreanFont'>대중교통 정보</h2>
 							<div>
-								<h2>버스</h2>
+								<h2 class='koreanFont'>버스</h2>
 								<div class="col-6 col-12-small">
 									<ul class="link-list">
-										<li><a href="javascript:bus('busInfo','일반버스',1)">노선버스</a></li>
-										<li><a href="javascript:bus('busInfo','좌석버스',1)">좌석버스</a></li>
-										<li><a href="javascript:bus('busInfo','급행버스',1)">급행버스</a></li>
-										<li><a href="javascript:bus('busInfo','심야버스',1)">심야버스</a></li>
+										<li><a href="javascript:bus('busInfo','일반버스',1)" class=tranportButton>노선버스</a></li>
+										<li><a href="javascript:bus('busInfo','좌석버스',1)" class=tranportButton>좌석버스</a></li>
+										<li><a href="javascript:bus('busInfo','급행버스',1)" class=tranportButton>급행버스</a></li>
+										<li><a href="javascript:bus('busInfo','심야버스',1)" class=tranportButton>심야버스</a></li>
 									</ul>
 								</div>
-								<h2>지하철</h2>
+								<h2 class='koreanFont'>지하철</h2>
 								<div class="col-6 col-12-small">
 									<ul class="link-list">
-										<li><a href="/subwayLine1">1호선</a></li>
-										<li><a href="/subwayLine2">2호선</a></li>
-										<li><a href="/subwayLine3">3호선</a></li>
-										<li><a href="/subwayLine4">4호선</a></li>
-										<li><a href="#">경전철</a></li>
+										<li><a href="/subwayLine1" class=tranportButton>1호선</a></li>
+										<li><a href="/subwayLine2" class=tranportButton>2호선</a></li>
+										<li><a href="/subwayLine3" class=tranportButton>3호선</a></li>
+										<li><a href="/subwayLine4" class=tranportButton>4호선</a></li>
+										<li><a href="#" class=tranportButton>경전철</a></li>
 									</ul>
 								</div>
 							</div>
@@ -59,7 +76,6 @@ height:50px;
 					<div class="col-8 col-12-medium imp-medium">
 
 						<section>
-							<h2>교통 정보</h2>
 							<span id = "lineInfo"></span>
 							
 						</section>
