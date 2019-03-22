@@ -4,6 +4,7 @@
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE HTML>
 <html>
+<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Hi+Melody|Sunflower:300&amp;subset=korean" rel="stylesheet">
 <style>
 #map {
 	width: 100%;
@@ -15,7 +16,31 @@ td{
 width:150px;
 height:50px;
 }
+#tourInfo h2.koreanFont{
+font-family: 'Do Hyeon', sans-serif;
+font-size: 50px;
 
+}
+.col-4 h2.koreanFont{
+font-family: 'Do Hyeon', sans-serif;
+font-size: 40px;
+}
+p {
+font-family: 'Do Hyeon', sans-serif;
+font-size: 20px;
+
+}
+p.koreanFont{
+font-family: 'Hi Melody', cursive;
+font-size: 25px;
+}
+p{
+font-family: 'Hi Melody', cursive;
+font-size: 25px;
+}
+.tourbutton{
+font-family: 'Sunflower', sans-serif;
+}
 </style>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script>
@@ -77,7 +102,7 @@ height:50px;
 			<div class="row main-row">
 				<div class="col-4 col-12-medium">
 				<section>
-						<h2>테마별 여행 추천</h2>
+						<h2 class="koreanFont">테마별 여행 추천</h2>
 						<div>
 							<div class="row">
 
@@ -116,7 +141,7 @@ height:50px;
 						</div>
 					</section>
 					<section>
-						<h2>부산 주간 날씨</h2>
+						<h2 class="koreanFont">부산 주간 날씨</h2>
 						<table>
 							<tr>
 								<td colspan=4>오늘(${todayDate})</td>
@@ -160,22 +185,22 @@ height:50px;
 
 					<section>
 					<span id=tourInfo>
-					<h2 align = center>${vo.title}</h2>
+					<h2 align = center class=koreanFont>${vo.title}</h2>
 						<p align = center>
 							 <img src="${vo.imgSrc }"></p>
-							<p>장소 명 : ${vo.title }</p>
-							<p>전화번호 :${vo.tel }</p>
-							<p>안내전화 : ${vo.guide }</p>
-							<p>주 소 : ${vo.addr }</p>
-							<p>편의 시설 : ${vo.disest }</p>
-							<p>홈페이지 : <c:if test="${vo.userHomepage!='' }">
-							<a href=${vo.userHomepage }>${vo.userHomepage }</a>
+							<p class=koreanFont>장소 명 : ${vo.title }</p>
+							<p class=koreanFont>전화번호 :${vo.tel }</p>
+							<p class=koreanFont>안내전화 : ${vo.guide }</p>
+							<p class=koreanFont>주 소 : ${vo.addr }</p>
+							<p class=koreanFont>편의 시설 : ${vo.disest }</p>
+							<p class=koreanFont>홈페이지 : <c:if test="${vo.userHomepage!='' }">
+							<a href=${vo.userHomepage }  class=koreanFont>${vo.userHomepage }</a>
 							</c:if>
 							</p>
-							<p>가 격 : ${vo.entfree }</p>
-							<p>교통편 : ${vo.traffic }</p>
-							<p>오시는 길 : ${vo.way }</p>
-							<p>상세정보 : ${vo.content }</p>
+							<p class=koreanFont >가 격 : ${vo.entfree }</p>
+							<p class=koreanFont>교통편 : ${vo.traffic }</p>
+							<p class=koreanFont>오시는 길 : ${vo.way }</p>
+							<p class=koreanFont>상세정보 : ${vo.content }</p>
 							<c:if test="${vo.wgsx!='-'}">
 							<p id=map></p>
 							</c:if>

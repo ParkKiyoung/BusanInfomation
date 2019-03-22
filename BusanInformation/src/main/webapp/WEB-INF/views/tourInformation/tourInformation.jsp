@@ -4,11 +4,42 @@
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE HTML>
 <html>
+<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Hi+Melody|Sunflower:300&amp;subset=korean" rel="stylesheet">
 <style>
 td{
 width:150px;
 height:50px;
 }
+#tourInfo h2.koreanFont{
+font-family: 'Do Hyeon', sans-serif;
+font-size: 50px;
+
+}
+.col-4 h2.koreanFont{
+font-family: 'Do Hyeon', sans-serif;
+font-size: 40px;
+}
+p.koreanFont{
+font-family: 'Do Hyeon', sans-serif;
+font-size: 30px;
+
+}
+.tourbutton{
+font-family: 'Sunflower', sans-serif;
+}
+.koreanFontTitle{
+font-family: 'Do Hyeon', sans-serif;
+font-size: 25px;
+}
+.koreanFontContent{
+font-family: 'Hi Melody', cursive;
+
+}
+.koreanFontList{
+font-family: 'Do Hyeon', sans-serif;
+
+}
+
 </style>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script>
@@ -32,7 +63,7 @@ height:50px;
 			<div class="row main-row">
 				<div class="col-4 col-12-medium">
 				<section>
-						<h2>테마별 여행 추천</h2>
+						<h2 class="koreanFont">테마별 여행 추천</h2>
 						<div>
 							<div class="row">
 
@@ -71,7 +102,7 @@ height:50px;
 						</div>
 					</section>
 					<section >
-						<h2>부산 주간 날씨</h2>
+						<h2 class="koreanFont">부산 주간 날씨</h2>
 						<table>
 							<tr>
 								<td colspan=4>오늘(${todayDate})</td>
@@ -115,21 +146,23 @@ height:50px;
 
 					<section>
 						<span id=tourInfo>
-							<h2>부산을 대표하는 관광지</h2>
-							<p>
+							<h2 class="koreanFont">부산을 대표하는 관광지</h2>
+							<p
+							 class="koreanFont">
 								해운대 해수욕장 및 <a href="https://www.busanaquarium.com/">아쿠아리움</a>
 							</p>
 							<table>
 								<tr>
 									<td><img
 										src="/resources/img/tourinfomainimg/haeundae1.jpg" width=300
-										height=200></td>
+										height=200 ></td>
 									<td><img
 										src="/resources/img/tourinfomainimg/aquarium.jpg" width=400
 										height=200></td>
 								</tr>
 							</table>
-							<p>달맞이 공원</p>
+							<br>
+							<p class="koreanFont">달맞이 공원</p>
 							<table>
 								<tr>
 									<td><img
@@ -140,7 +173,8 @@ height:50px;
 										height=200></td>
 								</tr>
 							</table>
-							<p>용두산 공원 및 태종대</p>
+							<br>
+							<p class="koreanFont">용두산 공원 및 태종대</p>
 							<table>
 								<tr>
 									<td><img
@@ -151,7 +185,8 @@ height:50px;
 										height=200></td>
 								</tr>
 							</table>
-							<p>
+							<br>
+							<p class="koreanFont">
 								<a href="https://www.knmm.or.kr/Main/Main.aspx">국립해양 박물관</a>
 							</p>
 							<table>
