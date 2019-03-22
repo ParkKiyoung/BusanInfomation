@@ -54,12 +54,12 @@ function tourSpot(course,pageNo,place,theme){
 	$.get("exptour",{"course":course,"pageNo":pageNo,"place":place,"fx":"exptour","theme":theme},function(data){
 	data=$.parseJSON(data)
 	var expMenu="";
-	expMenu+="<h2>"+place+"의 정보</h2>"
+	expMenu+="<h2 class=koreanFont>"+place+"의 정보</h2>"
 	$("#pageHtml").html(data[0].pageHtml);
 	for(var i = 0;i<data.length;i++){
 		expMenu+="<p>"
-		expMenu+="<a href=javascript:empView('"+course+"','"+data[i].datasid+"',"+pageNo+",'"+place+"',\""+theme+"\")>"+data[i].title+"</a><br>"
-		expMenu+=data[i].content.substring(0,150)
+		expMenu+="<a href=javascript:empView('"+course+"','"+data[i].datasid+"',"+pageNo+",'"+place+"',\""+theme+"\") class=koreanFontTitle >"+data[i].title+"</a><br>"
+		expMenu+="<span class=koreanFontContent>"+data[i].content.substring(0,150)+"</span>"
 		if(data[i].content.length>150){
 			expMenu+="...";
 		}
@@ -75,8 +75,8 @@ function exptour(course,pageNo,place,theme){
 	expMenu+="<h2 class=koreanFont>"+place+"의 정보</h2>"
 	$("#pageHtml").html(data[0].pageHtml);
 	for(var i = 0;i<data.length;i++){
-		expMenu+="<p class=koreanFontTitle>"
-		expMenu+="<a href=javascript:empView('"+course+"','"+data[i].datasid+"',"+pageNo+",'"+place+"',\""+theme+"\") class=koreanFontContent>"+data[i].title+"</a><br>"
+		expMenu+="<p >"
+		expMenu+="<a href=javascript:empView('"+course+"','"+data[i].datasid+"',"+pageNo+",'"+place+"',\""+theme+"\") >"+data[i].title+"</a><br>"
 		expMenu+=data[i].content.substring(0,150)
 		if(data[i].content.length>150){
 			expMenu+="...";

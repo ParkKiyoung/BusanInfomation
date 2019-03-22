@@ -27,16 +27,18 @@ font-size: 30px;
 .tourbutton{
 font-family: 'Sunflower', sans-serif;
 }
-.koreanFontTitle{
+a.koreanFontTitle{
 font-family: 'Do Hyeon', sans-serif;
-font-size: 25px;
+font-size: 29px;
 }
-.koreanFontContent{
+span.koreanFontContent{
 font-family: 'Hi Melody', cursive;
-
+font-size: 20px;
 }
-.koreanFontList{
+
+p.koreanFontList{
 font-family: 'Do Hyeon', sans-serif;
+font-size: 30px;
 
 }
 

@@ -30,9 +30,10 @@ $(document).ready(function(){
 			lineIndex+="<th>"+data[i].headwayPeak+"분</th>";
 			lineIndex+="<th>"+data[i].headwayHoli+"분</th></tr>";
 		}
-		lineIndex+="</table><br>"
+		lineIndex+="</table><br>"	
 		lineIndex+="<div align=center>"+data[data.length-1].pageHtml+"</div>";
-		
+		lineIndex+="<input type=text id=word name=word width=100>";
+		lineIndex+="<input type=button value='검색' onclick='busSearch()'>";
 	$("#lineInfo").html(lineIndex);
 		
 	})
