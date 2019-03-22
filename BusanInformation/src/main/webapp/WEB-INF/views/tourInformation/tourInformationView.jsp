@@ -41,6 +41,20 @@ font-size: 25px;
 .tourbutton{
 font-family: 'Sunflower', sans-serif;
 }
+a.koreanFontTitle{
+font-family: 'Do Hyeon', sans-serif;
+font-size: 29px;
+}
+span.koreanFontContent{
+font-family: 'Hi Melody', cursive;
+font-size: 20px;
+}
+
+p.koreanFontList{
+font-family: 'Do Hyeon', sans-serif;
+font-size: 30px;
+
+}
 </style>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script>
