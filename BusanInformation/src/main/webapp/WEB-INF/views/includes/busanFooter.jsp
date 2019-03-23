@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<link href="https://fonts.googleapis.com/css?family=Noto+Serif+KR" rel="stylesheet">
 	<style>
 	.footer{
 	width:300px;
@@ -8,6 +9,7 @@
 	.footerText{
 	width:1000px;
 	height:60px;
+	font-family: 'Noto Serif KR', serif;
 	}
 	
 	</style>

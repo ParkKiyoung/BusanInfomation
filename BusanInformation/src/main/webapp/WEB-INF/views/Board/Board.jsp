@@ -4,6 +4,7 @@
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE HTML>
 <html>
+<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Gamja+Flower|Hi+Melody|Sunflower:300&amp;subset=korean" rel="stylesheet">
 <style>
 .boardlink:link {
 	text-decoration: none;
@@ -15,6 +16,20 @@
 
 .boardtable td {
 	height: 40px;
+}
+h2.koreanFont{
+font-family: 'Do Hyeon', sans-serif;
+}
+#tourInfo h2.koreanFont{
+font-family: 'Do Hyeon', sans-serif;
+font-size: 40px;
+}
+#tourInfo h3.koreanFont{
+font-family: 'Do Hyeon', sans-serif;
+font-size: 30px;
+}
+.tourbutton{
+font-family: 'Sunflower', sans-serif;
 }
 </style>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -62,31 +77,31 @@
 			<div class="row main-row">
 				<div class="col-4 col-12-medium">
 					<section>
-						<h2>가볼만한 곳 추천/후기</h2>
+						<h2 class=koreanFont>가볼만한 곳 추천/후기</h2>
 						<div>
 							<div class="row">
 								<div class="col-6 col-12-small">
 									<ul class="link-list">
-										<li><a href="javascript:gutour('joong','중구')">중구</a></li>
-										<li><a href="javascript:gutour('seo','서구')">서구</a></li>
-										<li><a href="javascript:gutour('dong','동구')">동구</a></li>
-										<li><a href="javascript:gutour('youngdo','영도구')">영도구</a></li>
-										<li><a href="javascript:gutour('busanjin','부산진구')">부산진구</a></li>
-										<li><a href="javascript:gutour('geumjeong','금정구')">금정구</a></li>
-										<li><a href="javascript:gutour('gangseo','강서구')">강서구</a></li>
-										<li><a href="javascript:gutour('sasang','사상구')">사상구</a></li>
+										<li><a href="javascript:gutour('joong','중구')" class=tourbutton>중구</a></li>
+										<li><a href="javascript:gutour('seo','서구')" class=tourbutton>서구</a></li>
+										<li><a href="javascript:gutour('dong','동구')" class=tourbutton>동구</a></li>
+										<li><a href="javascript:gutour('youngdo','영도구')" class=tourbutton>영도구</a></li>
+										<li><a href="javascript:gutour('busanjin','부산진구')" class=tourbutton>부산진구</a></li>
+										<li><a href="javascript:gutour('geumjeong','금정구')" class=tourbutton>금정구</a></li>
+										<li><a href="javascript:gutour('gangseo','강서구')" class=tourbutton>강서구</a></li>
+										<li><a href="javascript:gutour('sasang','사상구')" class=tourbutton>사상구</a></li>
 									</ul>
 								</div>
 								<div class="col-6 col-12-small">
 									<ul class="link-list">
-										<li><a href="javascript:gutour('dongnea','동래구')">동래구</a></li>
-										<li><a href="javascript:gutour('nam','남구')">남구</a></li>
-										<li><a href="javascript:gutour('book','북구')">북구</a></li>
-										<li><a href="javascript:gutour('haeundae','해운대구')">해운대구</a></li>
-										<li><a href="javascript:gutour('saha','사하구')">사하구</a></li>
-										<li><a href="javascript:gutour('yeonje','연제구')">연제구</a></li>
-										<li><a href="javascript:gutour('suyoung','수영구')">수영구</a></li>
-										<li><a href="javascript:gutour('gijang','기장군')">기장군</a></li>
+										<li><a href="javascript:gutour('dongnea','동래구')" class=tourbutton>동래구</a></li>
+										<li><a href="javascript:gutour('nam','남구')" class=tourbutton>남구</a></li>
+										<li><a href="javascript:gutour('book','북구')" class=tourbutton>북구</a></li>
+										<li><a href="javascript:gutour('haeundae','해운대구')" class=tourbutton>해운대구</a></li>
+										<li><a href="javascript:gutour('saha','사하구')" class=tourbutton>사하구</a></li>
+										<li><a href="javascript:gutour('yeonje','연제구')" class=tourbutton>연제구</a></li>
+										<li><a href="javascript:gutour('suyoung','수영구')" class=tourbutton>수영구</a></li>
+										<li><a href="javascript:gutour('gijang','기장군')" class=tourbutton>기장군</a></li>
 									</ul>
 								</div>
 							</div>
@@ -95,10 +110,10 @@
 				</div>
 				<div class="col-8 col-12-medium imp-medium">
 					<div id=tourInfo>
-						<h2>게시판</h2>
+						<h2 class=koreanFont>게시판</h2>
 						<hr>
 						<div id=div.board align=center>
-							<h3>여행 후기를 볼 수 있는 게시판입니다.</h3>
+							<h3 class=koreanFont>여행 후기를 볼 수 있는 게시판입니다.</h3>
 							<hr>
 							<table class="boardtable">
 								<thead>
