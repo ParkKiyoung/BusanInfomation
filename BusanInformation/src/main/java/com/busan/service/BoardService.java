@@ -3,6 +3,7 @@ package com.busan.service;
 import java.util.HashMap;
 import java.util.List;
 
+import com.busan.domain.BoardReplyVO;
 import com.busan.domain.BusanBoardVO;
 
 public interface BoardService {
@@ -14,5 +15,13 @@ public interface BoardService {
 	public BusanBoardVO BoardRead(Long num);//상세보기
 	public int getTotal(HashMap<String, String> map);//개수
 	public int passCheck(Long num, String password);
+	
+	
+	public void replyInsert(BoardReplyVO vo);
+	public int replyDelete(Long num, String password);//삭제
+	public List<BoardReplyVO> replyList(Long num);//리플리스트
+	public void addreply(Long bnum);
+	public void subreply(Long bnum);
+	
 
 }

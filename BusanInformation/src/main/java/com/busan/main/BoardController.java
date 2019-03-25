@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.busan.domain.BoardReplyVO;
 import com.busan.domain.BusanBoardVO;
 import com.busan.service.BoardService;
 
@@ -47,12 +48,11 @@ public class BoardController {
 		int count = service.getTotal(map);
 		List<BusanBoardVO> arr = service.BoardList(map);
 		String  pageHtml = page.searchpaging(count,pageSize,currentPage,field,word);
-		
+
 		model.addAttribute("currentPage",currentPage);
 		model.addAttribute("pageHtml",pageHtml);
 		model.addAttribute("boardlist",arr);
 		model.addAttribute("count",count);
-		
 		
 		return "/Board/Board";
 	}
@@ -125,7 +125,15 @@ public class BoardController {
 	@GetMapping("/get")//상세보기
 	public String BoardRead(Model model, Long num) {
 		BusanBoardVO vo = service.BoardRead(num);
+		
 		vo.setContent(vo.getContent().replaceAll("\r\n", "<br>"));
+		
+		List<BoardReplyVO> replyarr = service.replyList(num);
+		
+		for(int i = 0 ; i<replyarr.size();i++) {
+			replyarr.get(i).setReplycontent(replyarr.get(i).getReplycontent().replaceAll("\r\n", "<br>"));
+		}
+		model.addAttribute("replyarr",replyarr);
 		model.addAttribute("vo",vo);
 		return "/Board/BoardRead";
 	}
@@ -151,8 +159,21 @@ public class BoardController {
 	}
 	@GetMapping("/BoardDelete")
 	public String BoardDelete(Long num) {
-		System.out.println("들어오냐?:"+num);
 		service.BoardDelete(num);
 		return "redirect:/Board";
+	}
+	@GetMapping("/reply")//댓글 입력
+	public String replyinsert(BoardReplyVO vo) {
+		service.replyInsert(vo);
+		service.addreply(vo.getBnum());
+		return "redirect:/get?num="+vo.getBnum();
+	}
+	@PostMapping("replyDelete")//댓글 삭제
+	public @ResponseBody String replyDelete(Long num, String password,Long bnum) {
+		int flag=0;
+		System.out.println(num+password);
+		flag = service.replyDelete(num,password);
+		service.subreply(bnum);
+		return String.valueOf(flag);
 	}
 }

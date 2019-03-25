@@ -23,6 +23,9 @@
 <insert id="insert">
 insert into board values(Board_seq.nextval,#{writer},#{title},#{content},sysdate,#{password})
 </insert>
+<insert id="replyInsert">
+insert into reply values(reply_seq.nextval,#{bnum},#{replyid},#{replycontent},#{replypass},sysdate)
+</insert>
 
 <select id="getList" parameterType="map" resultType="com.busan.domain.BusanBoardVO">
 <![CDATA[
@@ -44,13 +47,30 @@ select * from board where num=#{num}
 <select id="passCheck" resultType="String">
 select password from board where num = #{num}
 </select>
+<select id="replypassCheck" resultType="String">
+select replypass from reply where num = #{num}
+</select>
+
+<select id="replyList" resultType="com.busan.domain.BoardReplyVO">
+select * from reply where bnum=#{num}
+</select>
+
+
 
 <update id="update">
 update board set title=#{title}, writer=#{writer}, content=#{content}, password=#{password} where num=#{num}
 </update>
-
+<update id="addreply">
+update board set replycount=replycount+1 where num=#{bnum}
+</update>
+<update id="subreply">
+update board set replycount=replycount-1 where num=#{bnum}
+</update>
 <delete id="delete">
 delete board where num=#{num}
+</delete>
+<delete id="replyDelete">
+delete reply where num=#{num}
 </delete>
 
 </mapper>

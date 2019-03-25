@@ -1,4 +1,4 @@
-	function gutour(area, guname) {
+function gutour(area, guname) {
 		$.ajax({
 			type : "get",
 			url : "gutour",
@@ -88,3 +88,5 @@ function searchBtn() {//검색
 	location.href = "Board?field=" + field + "&word=" + word
 
 }
+
+

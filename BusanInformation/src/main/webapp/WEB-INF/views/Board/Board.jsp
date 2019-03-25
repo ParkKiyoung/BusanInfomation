@@ -131,6 +131,9 @@ font-family: 'Sunflower', sans-serif;
 												<c:if test="${fn:length(i.title)>15 }">
 											...
 											</c:if>
+											<c:if test="${i.replyCount!=0 }">
+											[${i.replyCount }]
+											</c:if>
 										</a></td>
 										<td>${fn:substring(i.writer,0,3)}<c:if
 												test="${fn:length(i.writer)>3 }">

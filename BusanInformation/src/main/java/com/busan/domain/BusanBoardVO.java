@@ -8,9 +8,16 @@ public class BusanBoardVO {
 	private String password;
 	private String writedate;
 	private String title;
+	private String replyCount;
 	
 	
 	
+	public String getReplyCount() {
+		return replyCount;
+	}
+	public void setReplyCount(String replyCount) {
+		this.replyCount = replyCount;
+	}
 	public Long getNum() {
 		return num;
 	}
