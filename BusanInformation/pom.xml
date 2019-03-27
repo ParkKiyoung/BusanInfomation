@@ -97,9 +97,6 @@
 			<artifactId>geocoder-java</artifactId>
 			<version>0.16</version>
 		</dependency>
-
-
-
 		<!-- AspectJ -->
 		<dependency>
 			<groupId>org.aspectj</groupId>

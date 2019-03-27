@@ -13,15 +13,15 @@ public class TweetTest {
 	public static void main(String[] args) {
 		ConfigurationBuilder cb = new ConfigurationBuilder();
 		cb.setDebugEnabled(true)
-		.setOAuthConsumerKey("FGn7jhXosW5DIYVfB0Sbz2e3R")
-		.setOAuthConsumerSecret("iIsSr0L7vzzQvzGVv02df2p0KAgytOpDYgFtfXhBJhBtWpqJk1")
-		.setOAuthAccessToken("1105447582434701312-p1NSSnNz7kZ9ygRuQbSpmEtSmNAKsz")
-		.setOAuthAccessTokenSecret("bAFIXyAmgmpz5v4j7eb7N9JgBq0TJtOhofs8SyfjGIKZy");
+		.setOAuthConsumerKey("키")
+		.setOAuthConsumerSecret("컨")
+		.setOAuthAccessToken("토큰")
+		.setOAuthAccessTokenSecret("키");
 		
 		TwitterFactory tf = new TwitterFactory(cb.build());
 		Twitter twitter = tf.getInstance();
 		
-		Query query = new Query("해운대여행");
+		Query query = new Query("해운대");
 		QueryResult result = null;
 		
 		try {
@@ -30,7 +30,7 @@ public class TweetTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("서면맛집 : "+result.getTweets().size());
+		System.out.println("해운대 : "+result.getTweets().size());
 		for(Status status : result.getTweets()) {
 			System.out.println("트위터 내용 : "+status.getText());
 			System.out.println("리트윗 횟수 : "+status.getRetweetCount());
