@@ -9,14 +9,11 @@ import org.json.simple.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import com.busan.service.BusService;
 
 @Controller
 @RequestMapping("/*")
@@ -24,8 +21,6 @@ public class TransController {
 	
 	@Inject
 	private PagingAction page;
-	@Autowired
-	private BusService busService;
 	
 	
 	String myapi = "F3RKR%2FvO05WMjgbXcNLYkUXIvJfX9WlREEmv1M6GhxceQUnsJBYynbCMu9NVA2rFzp1zGxOiG9V1QLjCSWTqlg%3D%3D";
