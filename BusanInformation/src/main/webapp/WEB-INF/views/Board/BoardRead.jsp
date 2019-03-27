@@ -192,7 +192,7 @@ h2.koreanFont {
 								<!--댓글 모달-->
 								<button type="button" class="smallbutton" data-toggle="modal"
 									data-target="#replyModal">댓글쓰기</button>
-
+									<hr>
 								<table>
 									<tr>
 										<th width=400>댓글</th>

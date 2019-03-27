@@ -139,6 +139,7 @@ public class TransController {
 			for(int i = 0 ; i<item.size();i++) {
 				String buslinenum = item.get(i).select("buslinenum").text();//버스번호
 				if(buslinenum.contains(num)) {
+					//buslinenum.contain("")일치 확인 일치하는 정보만 가져옴
 					JSONObject jobj = new JSONObject();
 					buslinenum = item.get(i).select("buslinenum").text();//버스번호
 					String startpoint = item.get(i).select("startpoint").text();//시작점
@@ -149,7 +150,6 @@ public class TransController {
 					String headwayPeak = item.get(i).select("headwayPeak").text();//출퇴근시간배차
 					String headwayHoli = item.get(i).select("headwayHoli").text();//휴일배차
 					String lineId = item.get(i).select("lineId").text();//라인 아이디
-					//buslinenum.contentEquals("")부분일치 확인 boolean 형태
 					jobj.put("lineId",lineId);
 					jobj.put("buslinenum",buslinenum);
 					jobj.put("startpoint",startpoint);

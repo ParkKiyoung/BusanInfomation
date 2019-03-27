@@ -9,7 +9,9 @@ import com.busan.domain.BusanBoardVO;
 public interface BoardMapper {
 
 	public void insert(BusanBoardVO vo);
+	
 	public List<BusanBoardVO> getList(HashMap<String, String> map);
+	
 	public int getTotal(HashMap<String, String> map);
 	public BusanBoardVO read(Long num);
 	public int delete(Long num);

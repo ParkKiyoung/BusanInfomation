@@ -18,8 +18,6 @@
    </if>
    </where>
    </sql>
-
-
 <insert id="insert">
 insert into board values(Board_seq.nextval,#{writer},#{title},#{content},sysdate,#{password})
 </insert>

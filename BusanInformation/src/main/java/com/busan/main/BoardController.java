@@ -30,8 +30,6 @@ public class BoardController {
 	@Autowired
 	private PagingAction page;
 	
-	
-	
 	@GetMapping("/Board")
 	public String Board(Model model,String pageNum,String field, String word) {
 		String spageNum = pageNum==null?"1":pageNum;
