@@ -19,7 +19,7 @@
    </where>
    </sql>
 <insert id="insert">
-insert into board values(Board_seq.nextval,#{writer},#{title},#{content},sysdate,#{password})
+insert into board(num,writer,title,content,writedate,password) values(Board_seq.nextval,#{writer},#{title},#{content},sysdate,#{password})
 </insert>
 <insert id="replyInsert">
 insert into reply values(reply_seq.nextval,#{bnum},#{replyid},#{replycontent},#{replypass},sysdate)

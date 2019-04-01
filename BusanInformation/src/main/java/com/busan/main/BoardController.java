@@ -117,6 +117,7 @@ public class BoardController {
 	
 	@PostMapping("/BoardWrite")//±€¿€º∫
 	public String BoardWrite(BusanBoardVO vo) {
+		
 		service.BoardInsert(vo);
 		return "redirect:/Board";
 	}
